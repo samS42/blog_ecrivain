@@ -41,11 +41,11 @@ if(isset($_GET['action']))
 	}
 	elseif ($_GET['action'] == 'modifyComment')
 	{
-		if(isset($_GET['id']) AND $_GET['id']>0)
+		if(isset($_GET['idCom']) AND $_GET['idCom']>0 AND isset($_GET['idPost']) AND $_GET['idPost'])
 		{
-			if(!empty($_POST['pseudo']) AND !empty($_POST['comment']))
+			if(!empty($_POST['pseudo1']) AND !empty($_POST['comment1']))
 			{
-				modifComment($_GET['id'], $_POST['pseudo'], $_POST['comment']);
+				modifComment($_GET['idCom'], $_GET['idPost'], $_POST['pseudo1'], $_POST['comment1']);
 			}
 			else
 			{

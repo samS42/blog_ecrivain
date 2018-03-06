@@ -5,7 +5,7 @@
 <h1>Mon article</h1>
 <p>
  <?= $db2['title'] ?>				le: <?= $db2['date_creation'] ?><br/>
- <?= $db2['content'] ?>
+ <?= $db2['content'] ?>				<?php $idid = $db2['id']; ?>
 </p>
 
 	<h3>Les commentaires</h3>
@@ -15,7 +15,7 @@
 	while($db3 = $db1->fetch())
 	{ ?>
 		 <?= $db3['author'] ?>				le: <?= $db3['comment_date'] ?><br/>
-		 <?= $db3['comment'] ?> <a href="view/frontend/modifyViewCom.php?idCom=<?=$db3['id'] ?>">(Modifier)</a>
+		 <?= $db3['comment'] ?> <a href="view/frontend/modifyViewCom.php?idCom=<?=$db3['id'] ?>&idPost=<?= $idid ?>">(Modifier)</a>
 	</p> 
 	<?php } ?>
 	

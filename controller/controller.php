@@ -40,11 +40,11 @@ function addComment($id_post, $pseudo, $comment)
 	}
 }
 
-function modifComment($id_comment, $pseudo, $comment)
+function modifComment($id_comment, $idPost, $pseudo1, $comment1)
 {
 	$commentManager = new Commentmanager();
 
-	$modifyCom = $commentManager->modifyComment($id_comment, $pseudo, $comment);
+	$modifyCom = $commentManager->modifyComment($id_comment, $pseudo1, $comment1);
 
 	if($modifyCom === false)
 	{
@@ -52,6 +52,6 @@ function modifComment($id_comment, $pseudo, $comment)
 	}
 	else
 	{
-		header('Location: index.php?action=post&id=' . $_GET['id']);
+		header('Location: index.php?action=post&id=' . $idPost);
 	}
 }
