@@ -25,11 +25,11 @@ public function comment($id_post, $pseudo, $comment)
 		return $recComm;
 }
 
-public function modifyComment($id_comment, $pseudo1, $comment1)
+public function modifyComment($id_comment, $idPost, $pseudo1, $comment1)
 {
 	$db = $this->call_db();
-	$dbModifyComment = $db->prepare('UPDATE comments SET id=:id, author=:author, comment=:comment');
-	$modifyCom = $dbModifyComment->execute(array('id'=>$id_comment, 'author'=>$pseudo1, 'comment'=>$comment1));
+	$dbModifyComment = $db->prepare('UPDATE comments SET author=:author, comment=:comment WHERE id=:id');
+	$modifyCom = $dbModifyComment->execute(array('author'=>$pseudo1, 'comment'=>$comment1, 'id'=>$id_comment));
 
 		return $modifyCom;
 }

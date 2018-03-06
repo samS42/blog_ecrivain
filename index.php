@@ -41,7 +41,7 @@ if(isset($_GET['action']))
 	}
 	elseif ($_GET['action'] == 'modifyComment')
 	{
-		if(isset($_GET['idCom']) AND $_GET['idCom']>0 AND isset($_GET['idPost']) AND $_GET['idPost'])
+		if(isset($_GET['idCom']) AND $_GET['idCom']>0 AND isset($_GET['idPost']) AND $_GET['idPost']>0)
 		{
 			if(!empty($_POST['pseudo1']) AND !empty($_POST['comment1']))
 			{
@@ -54,7 +54,7 @@ if(isset($_GET['action']))
 		}
 		else
 		{
-			throw new Exception('Le billet n\'est pas reconnu');
+			throw new Exception('Le billet ou le commentaire n\'est pas reconnu');
 		}
 		
 	}

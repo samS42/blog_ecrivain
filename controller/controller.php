@@ -44,9 +44,9 @@ function modifComment($id_comment, $idPost, $pseudo1, $comment1)
 {
 	$commentManager = new Commentmanager();
 
-	$modifyCom = $commentManager->modifyComment($id_comment, $pseudo1, $comment1);
+	$modifyCom = $commentManager->modifyComment($id_comment, $idPost, $pseudo1, $comment1);
 
-	if($modifyCom === false)
+	if($modifyCom == false)
 	{
 		throw new Exception('Impossible de modifier le commentaire');
 	}
