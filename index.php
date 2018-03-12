@@ -58,6 +58,17 @@ if(isset($_GET['action']))
 		}
 		
 	}
+	elseif ($_GET['action'] == 'connexion')
+	{
+		if(isset($_POST['id']) AND isset($_POST['pass']))
+		{
+			connexionAdmin($_POST['id'], $_POST['pass']);
+		}
+		else
+		{
+			throw new Exception('Toutes les données n\'ont pas été renseignées');
+		}
+	}
 }
 	
 else

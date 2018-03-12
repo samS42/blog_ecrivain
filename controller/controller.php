@@ -5,7 +5,7 @@ require_once('model/Commentmanager.php');
 
 function listPosts()
 {
-	$postManager = new Postmanager();
+	$postManager = new \POO\model\Postmanager();
 	$entry_db = $postManager->getPosts();
 
 	require('view/frontend/listPostsView.php');
@@ -13,8 +13,8 @@ function listPosts()
 
 function post()
 {
-	$postManager = new Postmanager();
-	$commentManager = new Commentmanager();
+	$postManager = new \POO\model\Postmanager();
+	$commentManager = new \POO\model\Commentmanager();
 
 	$getid = $_GET['id'];
 
@@ -26,7 +26,7 @@ function post()
 
 function addComment($id_post, $pseudo, $comment)
 {
-	$commentManager = new Commentmanager();
+	$commentManager = new \POO\model\Commentmanager();
 
 	$recComm = $commentManager->comment($id_post, $pseudo, $comment);
 
@@ -42,7 +42,7 @@ function addComment($id_post, $pseudo, $comment)
 
 function modifComment($id_comment, $idPost, $pseudo1, $comment1)
 {
-	$commentManager = new Commentmanager();
+	$commentManager = new \POO\model\Commentmanager();
 
 	$modifyCom = $commentManager->modifyComment($id_comment, $idPost, $pseudo1, $comment1);
 
@@ -54,4 +54,20 @@ function modifComment($id_comment, $idPost, $pseudo1, $comment1)
 	{
 		header('Location: index.php?action=post&id=' . $idPost);
 	}
+}
+
+function connexionAdmin($pseudo, $pass_form)
+{
+	$adminmanager = new \POO\model\Adminmanager();
+
+	$hashed_password = $adminmanager->check_password($pseudo, $pass_form);
+
+		if (password_verify($pass_form, $hashed_password['password']))
+		{
+			header('Location: index.php?action=listPosts');
+		}
+		else
+		{
+			throw new Exception('Impossible de se connecter');	
+		}
 }

@@ -1,7 +1,14 @@
+<?php ob_start();?>
+	<form method="post" action="/tests/blog_mvc/tests/POO/index.php?action=connexion">
+		<label>Identifiant: </label><input type="text" name="id" id="id">
+		<label>Mots de passe: </label><input type="password" name="pass" id="pass">
+		<input type="submit" name="envoyer"/>
+	</form>
+<?php $form = ob_get_clean() ?>
 
-	<?php $title = 'Mon nouveau blog' ?>
+<?php $title = 'Mon nouveau blog' ?>
 
-	<?php ob_start();?>
+<?php ob_start();?>
 	<h1>Mon nouveau blog</h1>
 	<h2>Mes derniers articles</h2>
 	<p>
