@@ -2,6 +2,7 @@
 
 require_once('model/Postmanager.php');
 require_once('model/Commentmanager.php');
+require_once('model/Adminmanager.php');
 
 function listPosts()
 {
@@ -64,7 +65,10 @@ function connexionAdmin($pseudo, $pass_form)
 
 		if (password_verify($pass_form, $hashed_password['password']))
 		{
-			header('Location: index.php?action=listPosts');
+			session_start();
+			$_SESSION['pseudo'] = $pseudo;
+
+			header('Location: /tests/blog_mvc/tests/POO/view/backend/adminView.php');
 		}
 		else
 		{

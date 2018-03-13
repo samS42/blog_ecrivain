@@ -6,7 +6,7 @@ require_once('model/Manager.php');
 
 class Adminmanager extends Manager
 {
-	function check_password($pseudo, $pass_form)
+	public function check_password($pseudo, $pass_form)
 	{
 		$db = $this->call_db();
 

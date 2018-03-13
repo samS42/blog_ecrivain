@@ -1,4 +1,30 @@
+<?php
+session_start();
+ob_start();
 
+	if(isset($_SESSION['pseudo']))
+	{
+		echo 'Bonjour ' . $_SESSION['pseudo'];
+?>
+		<br/>
+		<form method="post" action="view/backend/log.php">
+			<input type="submit" name="logout" value="Déconnexion">
+		</form>
+<?php
+	}
+	else
+	{
+	?>
+	<form method="post" action="index.php?action=connexion">
+		<label>Identifiant: </label><input type="text" name="id" id="id">
+		<label>Mots de passe: </label><input type="password" name="pass" id="pass">
+		<input type="submit" name="envoyer"/>
+	</form>
+
+	<?php
+	}
+
+	$form = ob_get_clean() ?>
 <?php $title = 'Mon article' ?>
 
 <?php ob_start(); ?>
