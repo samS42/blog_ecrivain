@@ -1,6 +1,7 @@
 <?php
 
-require('controller/controller.php');
+require('controller/frontController.php');
+require('controller/backController.php');
 
 try{
 if(isset($_GET['action']))
@@ -56,18 +57,32 @@ if(isset($_GET['action']))
 		{
 			throw new Exception('Le billet ou le commentaire n\'est pas reconnu');
 		}
-		
 	}
-	elseif ($_GET['action'] == 'connexion')
+
+	elseif ($_GET['action'] == 'connexion' AND $_GET['action2'] == 'displayTitles')
 	{
 		if(isset($_POST['id']) AND isset($_POST['pass']))
 		{
 			connexionAdmin($_POST['id'], $_POST['pass']);
+
 		}
 		else
 		{
 			throw new Exception('Toutes les données n\'ont pas été renseignées');
 		}
+	}
+
+	elseif ($_GET['action'] == 'displayTitles') {
+		listTitles();
+	}
+
+	elseif (isset($_GET['action']) AND $_GET['action'] == 'adminPost')
+	{
+		if(isset($_GET['id']))
+		{
+			displayPost($_GET['id']);
+		}
+		
 	}
 }
 	

@@ -6,6 +6,7 @@ ob_start();
 	{
 		echo 'Bonjour ' . $_SESSION['pseudo'];
 ?>
+		<a href="index.php?action=displayTitles">Page d'administration</a>
 		<br/>
 		<form method="post" action="view/backend/log.php">
 			<input type="submit" name="logout" value="Déconnexion">
@@ -15,7 +16,7 @@ ob_start();
 	else
 	{
 	?>
-	<form method="post" action="index.php?action=connexion">
+	<form method="post" action="index.php?action=connexion&action2=displayTitles">
 		<label>Identifiant: </label><input type="text" name="id" id="id">
 		<label>Mots de passe: </label><input type="password" name="pass" id="pass">
 		<input type="submit" name="envoyer"/>

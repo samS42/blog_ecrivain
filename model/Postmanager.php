@@ -9,7 +9,6 @@ class Postmanager extends Manager
 	public function getPosts()
 	{
 		$db = $this->call_db();
-
 		$entry_db = $db->query('SELECT * FROM posts ORDER BY date_creation DESC LIMIT 0,4');
 		
 			return $entry_db;
