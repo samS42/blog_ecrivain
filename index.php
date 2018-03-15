@@ -72,7 +72,8 @@ if(isset($_GET['action']))
 		}
 	}
 
-	elseif ($_GET['action'] == 'displayTitles') {
+	elseif ($_GET['action'] == 'displayTitles')
+	{
 		listTitles();
 	}
 
@@ -83,6 +84,30 @@ if(isset($_GET['action']))
 			displayPost($_GET['id']);
 		}
 		
+	}
+
+	elseif (isset($_GET['action']) AND isset($_GET['idPost']))
+	{
+		if ($_GET['action'] == 'deletePost')
+		{
+			deletePost($_GET['idPost']);
+		}
+		else
+		{
+			throw new Exception('Toutes les données n\'ont pas été renseignées');
+		}
+	}
+
+	elseif ($_GET['action'] == 'deleteComment')
+	{
+		if(isset($_GET['idComment']) AND isset($_GET['id']))
+		{
+			deleteComment($_GET['idComment'], $_GET['id']);
+		}
+		else
+		{
+			throw new Exception('Toutes les données n\'ont pas été renseignées');
+		}
 	}
 }
 	

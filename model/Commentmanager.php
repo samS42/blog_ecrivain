@@ -13,7 +13,6 @@ class Commentmanager extends Manager
 	$db1 = $db->prepare('SELECT * FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
 	$db1->execute(array($id_post));
 	
-
 		return $db1;
 	}
 

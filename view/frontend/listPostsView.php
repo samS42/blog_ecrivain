@@ -24,7 +24,9 @@
 	</form>
 
 <?php
-	} 
+	}
+
+
 	$form = ob_get_clean() ?>
 
 <?php $title = 'Mon nouveau blog' ?>

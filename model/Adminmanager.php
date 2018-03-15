@@ -36,8 +36,43 @@ class Adminmanager extends Manager
 			return $display;
 	}
 
-	public function delete_comment($idComment)
+		public function adminGetComments($id_post)
 	{
-		
+		$db = $this->call_db();
+
+		$displayComment = $db->prepare('SELECT * FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
+		$displayComment->execute(array($id_post));
+	
+			return $displayComment;
+	}
+
+	public function adminDeletePost($id_post)
+	{
+		$db = $this->call_db();
+
+		$deletePost = $db->prepare('DELETE FROM posts WHERE id=:id');
+		$deletePost->execute(array('id' => $id_post));
+
+			return $deletePost;
+	}
+
+	public function adminDeleteComments($id_post)
+	{
+		$db = $this->call_db();
+
+		$deleteComments = $db->prepare('DELETE FROM comments WHERE post_id=:id_post');
+		$deleteComments->execute(array('id_post' => $id_post));
+
+			return $deleteComments;
+	}
+
+	public function adminDeleteComment($id_comment)
+	{
+		$db = $this->call_db();
+
+		$deleteComment = $db->prepare('DELETE FROM comments WHERE id=:id');
+		$deleteComment->execute(array('id' => $id_comment));
+
+			return $deleteComment;
 	}
 }

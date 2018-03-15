@@ -11,19 +11,22 @@ ob_start();
 		<form method="post" action="view/backend/log.php">
 			<input type="submit" name="logout" value="Déconnexion">
 		</form>
+
+		<a href="/tests/blog_mvc/tests/POO/index.php?action=listPosts">Accueil</a>
 <?php
 	}
 	else
-	{
-	?>
-	<form method="post" action="index.php?action=connexion&action2=displayTitles">
-		<label>Identifiant: </label><input type="text" name="id" id="id">
-		<label>Mots de passe: </label><input type="password" name="pass" id="pass">
-		<input type="submit" name="envoyer"/>
-	</form>
+{
+?>
+		<form method="post" action="index.php?action=connexion&action2=displayTitles">
+			<label>Identifiant: </label><input type="text" name="id" id="id">
+			<label>Mots de passe: </label><input type="password" name="pass" id="pass">
+			<input type="submit" name="envoyer"/>
+		</form>
+		<a href="/tests/blog_mvc/tests/POO/index.php?action=listPosts">Accueil</a>
 
-	<?php
-	}
+<?php
+}
 
 	$form = ob_get_clean() ?>
 <?php $title = 'Mon article' ?>

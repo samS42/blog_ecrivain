@@ -1,5 +1,3 @@
-<?php
-?>
 
 <form method="post" action="view/backend/log.php">
 	<input type="submit" name="logout" value="Déconnexion">

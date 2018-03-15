@@ -33,6 +33,26 @@ function displayPost($id_post)
 {
 	$adminManager = new \POO\model\Adminmanager();
 	$display = $adminManager->adminGetPost($id_post);
+	$displayComments = $adminManager->adminGetComments($id_post);
 
 	require('view/backend/adminViewPost.php');
+}
+
+function deletePost($id_post)
+{
+	$adminManager = new \POO\model\Adminmanager();
+	$deletePost = $adminManager->adminDeletePost($id_post);
+	$deleteComments = $adminManager->adminDeleteComments($id_post);
+
+	listTitles();
+
+	header('Location: /tests/blog_mvc/tests/POO/index.php?action=displayTitles');
+}
+
+function deleteComment($id_comment, $id_post)
+{
+	$adminManager = new \POO\model\Adminmanager();
+	$deleteComment = $adminManager->adminDeleteComment($id_comment);
+
+	header('Location: /tests/blog_mvc/tests/POO/index.php?action=adminPost&id=' . $id_post);
 }
