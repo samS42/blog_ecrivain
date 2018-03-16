@@ -109,6 +109,43 @@ if(isset($_GET['action']))
 			throw new Exception('Toutes les données n\'ont pas été renseignées');
 		}
 	}
+	elseif (isset($_GET['action']) AND $_GET['action'] == 'addPost')
+	{
+		if(!empty($_POST['myTitle']) AND !empty($_POST['myTextarea']))
+		{
+			addPost($_POST['myTitle'], $_POST['myTextarea']);
+		}
+		else
+		{
+			throw new Exception('Touts les champs n\'ont pas été renseignées');
+		}
+	}
+	elseif (isset($_GET['action']) AND $_GET['action'] == 'updatePost')
+	{
+		if (isset($_GET['id']) AND isset($_POST['myTitle']) AND isset($_POST['myTextarea']))
+		{
+			updatePost($_GET['id'], $_POST['myTitle'], $_POST['myTextarea']);
+		}
+		else
+		{
+			throw new Exception('Touts les champs n\'ont pas été renseignées');
+		}
+	}
+	elseif (isset($_GET['action']) AND $_GET['action'] == 'signalComment')
+	{
+		if(isset($_GET['idComment']))
+		{
+			signalComment($_GET['idComment']);
+		}
+	else
+		{
+			throw new Exception('Le signalement n\' pas été effectué');
+		}
+	}
+	elseif (isset($_GET['action']) AND $_GET['action'] == 'displaySignalComment')
+	{
+		displaySignalComment();
+	}
 }
 	
 else

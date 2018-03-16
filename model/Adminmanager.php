@@ -75,4 +75,43 @@ class Adminmanager extends Manager
 
 			return $deleteComment;
 	}
+
+	public function adminAddPost($title, $content)
+	{
+		$db = $this->call_db();
+
+		$addPost = $db->prepare('INSERT INTO posts(title, content, date_creation) VALUES (?, ?, NOW())');
+		$addPost->execute(array($title, $content));
+
+			return $addPost;
+	}
+
+	public function adminUpdatePost($id_post, $title, $content)
+	{
+		$db = $this->call_db();
+
+		$updatePost = $db->prepare('UPDATE posts SET title= :title, content= :content WHERE id=:id');
+		$updatePost->execute(array('title' => $title, 'content' => $content, 'id' => $id_post,));
+
+			return $updatePost;
+	}
+
+	public function adminSignalcomment($id_comment)
+	{
+		$db = $this->call_db();
+
+		$signalComment = $db->prepare('UPDATE comments SET signalComment= :sc WHERE id=:id');
+		$signalComment->execute(array('sc' => 'OK', 'id' => $id_comment));
+
+			return $signalComment;
+	}
+
+	public function adminDisplaySignalComment(/*$id_comment, $author, $comment*/)
+	{
+		$db = $this->call_db();
+
+		$displaySignalComment = $db->query('SELECT * FROM comments WHERE signalComment = \'OK\'');
+		
+			return $displaySignalComment;
+	}
 }

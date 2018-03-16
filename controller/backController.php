@@ -56,3 +56,35 @@ function deleteComment($id_comment, $id_post)
 
 	header('Location: /tests/blog_mvc/tests/POO/index.php?action=adminPost&id=' . $id_post);
 }
+
+function addPost($title, $content)
+{
+	$adminManager = new \POO\model\Adminmanager();
+	$addPost = $adminManager->adminAddPost($title, $content);
+
+	header('Location: /tests/blog_mvc/tests/POO/index.php?action=displayTitles');
+}
+
+function updatePost($id_post, $title, $content)
+{
+	$adminManager = new \POO\model\Adminmanager();
+	$updatePost = $adminManager->adminUpdatePost($id_post, $title, $content);
+
+	header('Location: /tests/blog_mvc/tests/POO/index.php?action=adminPost&id=' . $id_post);
+}
+
+function signalComment($id_comment)
+{
+	$adminManager = new \POO\model\Adminmanager();
+	$signalComment = $adminManager->adminSignalComment($id_comment);
+
+	header('Location: /tests/blog_mvc/tests/POO/index.php');
+}
+
+function displaySignalComment(/*$id_comment, $author, $comment*/)
+{
+	$adminManager = new \POO\model\Adminmanager();
+	$displaySignalComment = $adminManager->adminDisplaySignalComment(/*$id_comment, $author, $comment*/);
+
+	require('view/backend/adminAlertComment.php');
+}

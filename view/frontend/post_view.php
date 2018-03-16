@@ -45,7 +45,7 @@ ob_start();
 	while($db3 = $db1->fetch())
 	{ ?>
 		 <?= $db3['author'] ?>				le: <?= $db3['comment_date'] ?><br/>
-		 <?= $db3['comment'] ?> <a href="view/frontend/modifyViewCom.php?idCom=<?=$db3['id'] ?>&idPost=<?= $idid ?>">(Modifier)</a>
+		 <?= $db3['comment'] ?> <a href="/tests/blog_mvc/tests/POO/index.php?action=signalComment&idComment=<?= $db3['id'] ?>">(Signaler)</a>
 	</p> 
 	<?php } ?>
 	

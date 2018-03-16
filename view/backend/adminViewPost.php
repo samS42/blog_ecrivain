@@ -13,6 +13,9 @@ session_start();
 	<form method="post" action="/tests/blog_mvc/tests/POO/index.php?action=deletePost&idPost=<?= $display['id'] ?>">
 		<input type="submit" name="delete" value="Supprimer le billet">
 	</form>
+	<form method="post" action="/tests/blog_mvc/tests/POO/view/backend/adminUpdatePost.php?action=updatePost&id=<?= $display['id']; ?>&title=<?= $display['title'] ?>&content=<?= $display['content'] ?>">
+		<input type="submit" name="update" value="Modifier le billet">
+	</form>
 	<?= $display['title'] ?>				le: <?= $display['date_creation'] ?><br/>
 	<?= $display['content'] ?>				<?php $display['id']; ?>
 </p>
