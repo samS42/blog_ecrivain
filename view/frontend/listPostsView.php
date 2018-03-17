@@ -17,6 +17,9 @@
 	else
 	{
 ?>
+
+	<!-- Display form for the connexion -->
+
 	<form method="post" action="index.php?action=connexion&action2=displayTitles">
 		<label>Identifiant: </label><input type="text" name="id" id="id">
 		<label>Mots de passe: </label><input type="password" name="pass" id="pass">
@@ -36,6 +39,9 @@
 	<h1>Mon nouveau blog</h1>
 	<h2>Mes derniers billets</h2>
 	<p>
+
+		<!-- Display posts list-->
+
 		<?php
 		while($write_db = $entry_db->fetch())
 		{

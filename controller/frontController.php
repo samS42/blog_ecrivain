@@ -4,6 +4,8 @@ require_once('model/Postmanager.php');
 require_once('model/Commentmanager.php');
 require_once('model/Adminmanager.php');
 
+/*Display front page (index.php)*/
+
 function listPosts()
 {
 	$postManager = new \POO\model\Postmanager();
@@ -12,15 +14,13 @@ function listPosts()
 	require('view/frontend/listPostsView.php');
 }
 
-function post()
+function post($id_post)
 {
 	$postManager = new \POO\model\Postmanager();
 	$commentManager = new \POO\model\Commentmanager();
 
-	$getid = $_GET['id'];
-
-	$db2 = $postManager->getPost($getid);
-	$db1 = $commentManager->getComments($getid);
+	$db2 = $postManager->getPost($id_post);
+	$db1 = $commentManager->getComments($id_post);
 
 	require('view/frontend/post_view.php');
 }
@@ -38,21 +38,5 @@ function addComment($id_post, $pseudo, $comment)
 	else
 	{
 		header('Location: index.php?action=post&id=' . $_GET['id']);
-	}
-}
-
-function modifComment($id_comment, $idPost, $pseudo1, $comment1)
-{
-	$commentManager = new \POO\model\Commentmanager();
-
-	$modifyCom = $commentManager->modifyComment($id_comment, $idPost, $pseudo1, $comment1);
-
-	if($modifyCom == false)
-	{
-		throw new Exception('Impossible de modifier le commentaire');
-	}
-	else
-	{
-		header('Location: index.php?action=post&id=' . $idPost);
 	}
 }

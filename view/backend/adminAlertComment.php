@@ -1,5 +1,7 @@
 <?php session_start(); ?>
 
+<!-- Disconnection -->
+
 <form method="post" action="view/backend/log.php">
 	<input type="submit" name="logout" value="Déconnexion">
 </form>
@@ -11,23 +13,38 @@
 
 <p>
 	<?php
+
+	/*Display signaled comments*/
+
 	while($display = $displaySignalComment->fetch())
 	{
+		if(empty($display['author']))
+		{
 	?>
-	<p>
+		Aucun commentaire n'a été signalé.
+	<?php
+		}
+		else
+		{
+	?>
 		Auteur: <?= $display['author'] ?><br/>
 		Commentaire: <?= $display['comment'] ?>
+		<?php
+		}
+		?>
 
-		<form method="post" action="/tests/blog_mvc/tests/POO/index.php?action=deleteComment&idComment=<?= $display['id'] ?>&id=<?= $display['post_id'] ?>">
+		<!-- Delete comment button -->
+
+		<form method="post" action="/tests/blog_mvc/tests/POO/index.php?action=adminDeleteComment&idComment=<?= $display['id'] ?>&id=<?= $display['post_id'] ?>">
 			<input type="submit" name="delete" value="Supprimer le commentaire">
 		</form>
 
-Faire la création du bouton pour effacer le "OK" dans la db!
+		<!-- Nothing button -->
 
-		<form method="post" action="/tests/blog_mvc/tests/POO/index.php?action=deleteComment&idComment=<?= $display['id'] ?>&id=<?= $display['post_id'] ?>">
+		<form method="post" action="/tests/blog_mvc/tests/POO/index.php?action=deleteSignal&idComment=<?= $display['id'] ?>">
 			<input type="submit" name="neRienFaire" value="Ne rien faire">
 		</form>
-	</p>
+	
 	<?php
 	}
 	?>

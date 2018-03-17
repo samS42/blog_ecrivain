@@ -6,22 +6,29 @@ require('controller/backController.php');
 try{
 if(isset($_GET['action']))
 {
+	/*Display listPostsView.php*/
+
 	if($_GET['action'] == 'listPosts')
 	{
 		listPosts();
 	}
 
+	/*Display post_view.php*/
+
 	elseif ($_GET['action'] == 'post')
 	{
 		if(isset($_GET['id']) AND $_GET['id'] > 0)
 		{
-			post();
+			post($_GET['id']);
 		}
 		else
 		{
 			throw new Exception('Aucun identifiant de billet envoyé');
 		}
 	}
+
+	/*add a comment*/
+
 	elseif ($_GET['action'] == 'addComment')
 	{
 		if (isset($_GET['id']) AND $_GET['id']>0)
@@ -40,24 +47,8 @@ if(isset($_GET['action']))
 			throw new Exception('Aucun identifiant de billet envoyé');
 		}
 	}
-	elseif ($_GET['action'] == 'modifyComment')
-	{
-		if(isset($_GET['idCom']) AND $_GET['idCom']>0 AND isset($_GET['idPost']) AND $_GET['idPost']>0)
-		{
-			if(!empty($_POST['pseudo1']) AND !empty($_POST['comment1']))
-			{
-				modifComment($_GET['idCom'], $_GET['idPost'], $_POST['pseudo1'], $_POST['comment1']);
-			}
-			else
-			{
-				throw new Exception('Toutes les données n\'ont pas été renseignées');
-			}
-		}
-		else
-		{
-			throw new Exception('Le billet ou le commentaire n\'est pas reconnu');
-		}
-	}
+
+	/*Connexion admin's section*/
 
 	elseif ($_GET['action'] == 'connexion' AND $_GET['action2'] == 'displayTitles')
 	{
@@ -72,12 +63,16 @@ if(isset($_GET['action']))
 		}
 	}
 
+	/*Display titles in admin's page*/
+
 	elseif ($_GET['action'] == 'displayTitles')
 	{
 		listTitles();
 	}
 
-	elseif (isset($_GET['action']) AND $_GET['action'] == 'adminPost')
+	/*Go to selected post in admin's page*/
+
+	elseif ($_GET['action'] == 'adminPost')
 	{
 		if(isset($_GET['id']))
 		{
@@ -86,7 +81,9 @@ if(isset($_GET['action']))
 		
 	}
 
-	elseif (isset($_GET['action']) AND isset($_GET['idPost']))
+	/*Delete selected post*/
+
+	elseif (isset($_GET['idPost']))
 	{
 		if ($_GET['action'] == 'deletePost')
 		{
@@ -97,6 +94,8 @@ if(isset($_GET['action']))
 			throw new Exception('Toutes les données n\'ont pas été renseignées');
 		}
 	}
+
+	/*Delete selected comment*/
 
 	elseif ($_GET['action'] == 'deleteComment')
 	{
@@ -109,7 +108,24 @@ if(isset($_GET['action']))
 			throw new Exception('Toutes les données n\'ont pas été renseignées');
 		}
 	}
-	elseif (isset($_GET['action']) AND $_GET['action'] == 'addPost')
+
+	/*Delete signaled comment*/
+
+	elseif ($_GET['action'] == 'adminDeleteComment')
+	{
+		if(isset($_GET['idComment']) AND isset($_GET['id']))
+		{
+			deleteCommentSignaled($_GET['idComment'], $_GET['id']);
+		}
+		else
+		{
+			throw new Exception('Toutes les données n\'ont pas été renseignées');
+		}
+	}
+
+	/*Add post*/
+
+	elseif ($_GET['action'] == 'addPost')
 	{
 		if(!empty($_POST['myTitle']) AND !empty($_POST['myTextarea']))
 		{
@@ -120,7 +136,10 @@ if(isset($_GET['action']))
 			throw new Exception('Touts les champs n\'ont pas été renseignées');
 		}
 	}
-	elseif (isset($_GET['action']) AND $_GET['action'] == 'updatePost')
+
+	/*Update post*/
+
+	elseif ($_GET['action'] == 'updatePost')
 	{
 		if (isset($_GET['id']) AND isset($_POST['myTitle']) AND isset($_POST['myTextarea']))
 		{
@@ -131,23 +150,45 @@ if(isset($_GET['action']))
 			throw new Exception('Touts les champs n\'ont pas été renseignées');
 		}
 	}
-	elseif (isset($_GET['action']) AND $_GET['action'] == 'signalComment')
+
+	/*User signal comment*/
+
+	elseif ($_GET['action'] == 'signalComment')
 	{
-		if(isset($_GET['idComment']))
+		if(isset($_GET['idComment']) AND isset($_GET['id']))
 		{
-			signalComment($_GET['idComment']);
+			signalComment($_GET['idComment'], $_GET['id']);
 		}
-	else
+		else
 		{
 			throw new Exception('Le signalement n\' pas été effectué');
 		}
 	}
-	elseif (isset($_GET['action']) AND $_GET['action'] == 'displaySignalComment')
+
+	/*Display signaled comment*/
+
+	elseif ($_GET['action'] == 'displaySignalComment')
 	{
 		displaySignalComment();
 	}
+
+	/*Signal deleted but the comment is still visible on the post*/
+
+	elseif (isset($_GET['action']) AND $_GET['action'] == 'deleteSignal')
+	{
+		if(isset($_GET['idComment']))
+		{
+			deleteSignalComment($_GET['idComment']);
+		}
+		else
+		{
+			throw new Exception('Le signalement n\' pas été supprimé');
+		}
+	}
 }
 	
+/*Comeback index.php*/
+
 else
 {
 	listPosts();

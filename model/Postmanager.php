@@ -6,6 +6,7 @@ require_once('model/Manager.php');
 
 class Postmanager extends Manager
 {
+	/*Display post on the front page*/
 	public function getPosts()
 	{
 		$db = $this->call_db();
@@ -13,6 +14,8 @@ class Postmanager extends Manager
 		
 			return $entry_db;
 	}
+
+	/*Display selected post*/
 
 	public function getPost($id_post)
 	{

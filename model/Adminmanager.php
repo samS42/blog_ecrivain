@@ -6,6 +6,8 @@ require_once('model/Manager.php');
 
 class Adminmanager extends Manager
 {
+	/*Admin's page connexion*/
+
 	public function check_password($pseudo, $pass_form)
 	{
 		$db = $this->call_db();
@@ -16,6 +18,8 @@ class Adminmanager extends Manager
 		
 		return $hashed_password;
 	}
+
+	/*Display admin's page*/
 
 	public function getTitles()
 	{
@@ -56,6 +60,8 @@ class Adminmanager extends Manager
 			return $deletePost;
 	}
 
+	/*Delete comments from deleted post*/
+
 	public function adminDeleteComments($id_post)
 	{
 		$db = $this->call_db();
@@ -65,6 +71,8 @@ class Adminmanager extends Manager
 
 			return $deleteComments;
 	}
+
+	/*Delete signaled comment*/
 
 	public function adminDeleteComment($id_comment)
 	{
@@ -96,12 +104,14 @@ class Adminmanager extends Manager
 			return $updatePost;
 	}
 
+	/*Display signaled comment in the db*/
+
 	public function adminSignalcomment($id_comment)
 	{
 		$db = $this->call_db();
 
 		$signalComment = $db->prepare('UPDATE comments SET signalComment= :sc WHERE id=:id');
-		$signalComment->execute(array('sc' => 'OK', 'id' => $id_comment));
+		$signalComment->execute(array('sc' => 'YES', 'id' => $id_comment));
 
 			return $signalComment;
 	}
@@ -110,8 +120,18 @@ class Adminmanager extends Manager
 	{
 		$db = $this->call_db();
 
-		$displaySignalComment = $db->query('SELECT * FROM comments WHERE signalComment = \'OK\'');
+		$displaySignalComment = $db->query('SELECT * FROM comments WHERE signalComment = \'YES\'');
 		
 			return $displaySignalComment;
+	}
+
+	public function adminDeleteSignalcomment($id_comment)
+	{
+		$db = $this->call_db();
+
+		$signalComment = $db->prepare('UPDATE comments SET signalComment= :sc WHERE id=:id');
+		$signalComment->execute(array('sc' => '', 'id' => $id_comment));
+
+			return $signalComment;
 	}
 }

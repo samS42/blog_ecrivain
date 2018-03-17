@@ -18,6 +18,8 @@ ob_start();
 	else
 {
 ?>
+		<!-- Display form for the connexion -->
+
 		<form method="post" action="index.php?action=connexion&action2=displayTitles">
 			<label>Identifiant: </label><input type="text" name="id" id="id">
 			<label>Mots de passe: </label><input type="password" name="pass" id="pass">
@@ -34,23 +36,29 @@ ob_start();
 <?php ob_start(); ?>
 <h1>Mon article</h1>
 <p>
+	<!-- Get data from post-->
+
  <?= $db2['title'] ?>				le: <?= $db2['date_creation'] ?><br/>
- <?= $db2['content'] ?>				<?php $idid = $db2['id']; ?>
+ <?= $db2['content'] ?>				<!-- suppression de $idid=$db2['id']-->
 </p>
 
 	<h3>Les commentaires</h3>
 	<p>
 	<?php
 
+	/*Get comments from post*/
+
 	while($db3 = $db1->fetch())
 	{ ?>
 		 <?= $db3['author'] ?>				le: <?= $db3['comment_date'] ?><br/>
-		 <?= $db3['comment'] ?> <a href="/tests/blog_mvc/tests/POO/index.php?action=signalComment&idComment=<?= $db3['id'] ?>">(Signaler)</a>
+		 <?= $db3['comment'] ?> <a href="/tests/blog_mvc/tests/POO/index.php?action=signalComment&idComment=<?= $db3['id'] ?>&id=<?= $db2['id'] ?>">(Signaler)</a>
 	</p> 
 	<?php } ?>
 	
 	<p>
-		<form method="POST" action="index.php?action=addComment&id= <?= $db2['id'] ?>">
+		<!-- comment add form -->
+
+		<form method="POST" action="/tests/blog_mvc/tests/POO/index.php?action=addComment&id=<?= $db2['id'] ?>">
 			<label>Pseudo</label><input type="text" name="pseudo" id="pseudo"><br>
 			<label>Commentaire</label><input type="text" name="comment" id="comment"><br>
 			<input type="submit"/>

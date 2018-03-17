@@ -1,5 +1,7 @@
 <?php
 
+require_once('model/Postmanager.php');
+require_once('model/Commentmanager.php');
 require_once('model/Adminmanager.php');
 
 function connexionAdmin($pseudo, $pass_form)
@@ -21,6 +23,8 @@ function connexionAdmin($pseudo, $pass_form)
 		}
 }
 
+/*Display frontpage admin*/
+
 function listTitles()
 {
 	$adminManager = new \POO\model\Adminmanager();
@@ -38,6 +42,8 @@ function displayPost($id_post)
 	require('view/backend/adminViewPost.php');
 }
 
+/*Delete post and the corresponding comments*/
+
 function deletePost($id_post)
 {
 	$adminManager = new \POO\model\Adminmanager();
@@ -48,6 +54,8 @@ function deletePost($id_post)
 
 	header('Location: /tests/blog_mvc/tests/POO/index.php?action=displayTitles');
 }
+
+/*Delete signaled comment*/
 
 function deleteComment($id_comment, $id_post)
 {
@@ -73,18 +81,39 @@ function updatePost($id_post, $title, $content)
 	header('Location: /tests/blog_mvc/tests/POO/index.php?action=adminPost&id=' . $id_post);
 }
 
-function signalComment($id_comment)
+function signalComment($id_comment, $id_post)
 {
 	$adminManager = new \POO\model\Adminmanager();
 	$signalComment = $adminManager->adminSignalComment($id_comment);
 
-	header('Location: /tests/blog_mvc/tests/POO/index.php');
+
+
+	header('Location: /tests/blog_mvc/tests/POO/index.php?action=post&id=' . $id_post);
+
 }
 
-function displaySignalComment(/*$id_comment, $author, $comment*/)
+function displaySignalComment()
 {
 	$adminManager = new \POO\model\Adminmanager();
-	$displaySignalComment = $adminManager->adminDisplaySignalComment(/*$id_comment, $author, $comment*/);
+	$displaySignalComment = $adminManager->adminDisplaySignalComment();
+
+	require('view/backend/adminAlertComment.php');
+}
+
+function deleteSignalcomment($id_comment)
+{
+	$adminManager = new \POO\model\Adminmanager();
+	$deleteSignalcomment = $adminManager->adminDeleteSignalcomment($id_comment);
+	$displaySignalComment = $adminManager->adminDisplaySignalComment();
+
+	require('view/backend/adminAlertComment.php');
+}
+
+function deleteCommentSignaled($id_comment, $id_post)
+{
+	$adminManager = new \POO\model\Adminmanager();
+	$deleteComment = $adminManager->adminDeleteComment($id_comment);
+	$displaySignalComment = $adminManager->adminDisplaySignalComment();
 
 	require('view/backend/adminAlertComment.php');
 }

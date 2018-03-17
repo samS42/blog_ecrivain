@@ -1,6 +1,8 @@
 <?php
 	session_start();
 
+	/*Disconnection*/
+
 	if(isset($_POST['logout']))
 	{
 		session_destroy();

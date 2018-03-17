@@ -37,6 +37,7 @@
 </head>
 
 <body>
+
  <form method="post" action="view/backend/log.php">
   <input type="submit" name="logout" value="Déconnexion">
 </form>
@@ -45,6 +46,9 @@
 <a href="/tests/blog_mvc/tests/POO/index.php?action=displayTitles">Accueil page d'administration</a>
  
   <h1>Ajouter un billet</h1>
+
+  <!-- Display content form from Tiny MCE -->
+
   <form action="/tests/blog_mvc/tests/POO/index.php?action=addPost" method="post">
     <h3>Titre: </h3><input type="text" id="myTitle" name="myTitle">
     <h3>Contenu: </h3><textarea id="myTextarea" name="myTextarea"></textarea>
