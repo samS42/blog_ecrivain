@@ -19,7 +19,7 @@ if(isset($_GET['action']))
 	{
 		if(isset($_GET['id']) AND $_GET['id'] > 0)
 		{
-			post($_GET['id']);
+			post(htmlspecialchars($_GET['id']));
 		}
 		else
 		{
@@ -35,7 +35,7 @@ if(isset($_GET['action']))
 		{
 			if(!empty($_POST['pseudo']) AND !empty($_POST['comment']))
 			{
-				addComment($_GET['id'], $_POST['pseudo'], $_POST['comment']);
+				addComment(htmlspecialchars($_GET['id']), htmlspecialchars($_POST['pseudo']), htmlspecialchars($_POST['comment']));
 			}
 			else
 			{
@@ -50,11 +50,11 @@ if(isset($_GET['action']))
 
 	/*Connexion admin's section*/
 
-	elseif ($_GET['action'] == 'connexion' AND $_GET['action2'] == 'displayTitles')
+	elseif ($_GET['action'] == 'connexion' AND isset($_GET['action2']) AND $_GET['action2'] == 'displayTitles')
 	{
-		if(isset($_POST['id']) AND isset($_POST['pass']))
+		if(isset($_POST['id']) AND is_string($_POST['id']) AND isset($_POST['pass']) AND is_string($_POST['pass']))
 		{
-			connexionAdmin($_POST['id'], $_POST['pass']);
+			connexionAdmin(htmlspecialchars($_POST['id']), htmlspecialchars($_POST['pass']));
 
 		}
 		else
@@ -74,20 +74,20 @@ if(isset($_GET['action']))
 
 	elseif ($_GET['action'] == 'adminPost')
 	{
-		if(isset($_GET['id']))
+		if(isset($_GET['id']) AND $_GET['id']>0)
 		{
-			displayPost($_GET['id']);
+			displayPost(htmlspecialchars($_GET['id']));
 		}
 		
 	}
 
 	/*Delete selected post*/
 
-	elseif (isset($_GET['idPost']))
+	elseif (isset($_GET['idPost']) AND $_GET['idPost']>0)
 	{
 		if ($_GET['action'] == 'deletePost')
 		{
-			deletePost($_GET['idPost']);
+			deletePost(htmlspecialchars($_GET['idPost']));
 		}
 		else
 		{
@@ -99,9 +99,9 @@ if(isset($_GET['action']))
 
 	elseif ($_GET['action'] == 'deleteComment')
 	{
-		if(isset($_GET['idComment']) AND isset($_GET['id']))
+		if(isset($_GET['idComment']) AND $_GET['idComment']>0 AND isset($_GET['id']) AND $_GET['id']>0)
 		{
-			deleteComment($_GET['idComment'], $_GET['id']);
+			deleteComment(htmlspecialchars($_GET['idComment']), htmlspecialchars($_GET['id']));
 		}
 		else
 		{
@@ -113,9 +113,9 @@ if(isset($_GET['action']))
 
 	elseif ($_GET['action'] == 'adminDeleteComment')
 	{
-		if(isset($_GET['idComment']) AND isset($_GET['id']))
+		if(isset($_GET['idComment']) AND $_GET['idComment']>0 AND isset($_GET['id']) AND $_GET['id']>0)
 		{
-			deleteCommentSignaled($_GET['idComment'], $_GET['id']);
+			deleteCommentSignaled(htmlspecialchars($_GET['idComment']), htmlspecialchars($_GET['id']));
 		}
 		else
 		{
@@ -129,7 +129,7 @@ if(isset($_GET['action']))
 	{
 		if(!empty($_POST['myTitle']) AND !empty($_POST['myTextarea']))
 		{
-			addPost($_POST['myTitle'], $_POST['myTextarea']);
+			addPost(htmlspecialchars($_POST['myTitle']), htmlspecialchars($_POST['myTextarea']));
 		}
 		else
 		{
@@ -141,9 +141,9 @@ if(isset($_GET['action']))
 
 	elseif ($_GET['action'] == 'updatePost')
 	{
-		if (isset($_GET['id']) AND isset($_POST['myTitle']) AND isset($_POST['myTextarea']))
+		if (isset($_GET['id']) AND $_GET['id']>0 AND isset($_POST['myTitle']) AND isset($_POST['myTextarea']))
 		{
-			updatePost($_GET['id'], $_POST['myTitle'], $_POST['myTextarea']);
+			updatePost(htmlspecialchars($_GET['id']), htmlspecialchars($_POST['myTitle']), htmlspecialchars($_POST['myTextarea']));
 		}
 		else
 		{
@@ -155,9 +155,9 @@ if(isset($_GET['action']))
 
 	elseif ($_GET['action'] == 'signalComment')
 	{
-		if(isset($_GET['idComment']) AND isset($_GET['id']))
+		if(isset($_GET['idComment']) AND $_GET['idComment']>0 AND isset($_GET['id']) AND $_GET['id']>0)
 		{
-			signalComment($_GET['idComment'], $_GET['id']);
+			signalComment(htmlspecialchars($_GET['idComment']), htmlspecialchars($_GET['id']));
 		}
 		else
 		{
@@ -174,11 +174,11 @@ if(isset($_GET['action']))
 
 	/*Signal deleted but the comment is still visible on the post*/
 
-	elseif (isset($_GET['action']) AND $_GET['action'] == 'deleteSignal')
+	elseif ($_GET['action'] == 'deleteSignal')
 	{
-		if(isset($_GET['idComment']))
+		if(isset($_GET['idComment']) AND $_GET['idComment']>0)
 		{
-			deleteSignalComment($_GET['idComment']);
+			deleteSignalComment(htmlspecialchars($_GET['idComment']));
 		}
 		else
 		{
