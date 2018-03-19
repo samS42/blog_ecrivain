@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require('controller/frontController.php');
 require('controller/backController.php');
@@ -17,7 +18,7 @@ if(isset($_GET['action']))
 
 	elseif ($_GET['action'] == 'post')
 	{
-		if(isset($_GET['id']) AND $_GET['id'] > 0)
+		if(isset($_GET['id']) AND is_numeric($_GET['id']) AND $_GET['id'] > 0)
 		{
 			post(htmlspecialchars($_GET['id']));
 		}
@@ -33,6 +34,8 @@ if(isset($_GET['action']))
 	{
 		if (isset($_GET['id']) AND $_GET['id']>0)
 		{
+			$_GET['id'] = (int) $_GET['id'];
+
 			if(!empty($_POST['pseudo']) AND !empty($_POST['comment']))
 			{
 				addComment(htmlspecialchars($_GET['id']), htmlspecialchars($_POST['pseudo']), htmlspecialchars($_POST['comment']));
@@ -55,7 +58,6 @@ if(isset($_GET['action']))
 		if(isset($_POST['id']) AND is_string($_POST['id']) AND isset($_POST['pass']) AND is_string($_POST['pass']))
 		{
 			connexionAdmin(htmlspecialchars($_POST['id']), htmlspecialchars($_POST['pass']));
-
 		}
 		else
 		{
@@ -76,6 +78,7 @@ if(isset($_GET['action']))
 	{
 		if(isset($_GET['id']) AND $_GET['id']>0)
 		{
+			$_GET['id'] = (int) $_GET['id'];
 			displayPost(htmlspecialchars($_GET['id']));
 		}
 		
@@ -85,6 +88,7 @@ if(isset($_GET['action']))
 
 	elseif (isset($_GET['idPost']) AND $_GET['idPost']>0)
 	{
+		$_GET['idPost'] = (int) $_GET['idPost'];
 		if ($_GET['action'] == 'deletePost')
 		{
 			deletePost(htmlspecialchars($_GET['idPost']));
@@ -101,6 +105,8 @@ if(isset($_GET['action']))
 	{
 		if(isset($_GET['idComment']) AND $_GET['idComment']>0 AND isset($_GET['id']) AND $_GET['id']>0)
 		{
+			$_GET['idComment'] = (int) $_GET['idComment'];
+			$_GET['id'] = (int) $_GET['id'];
 			deleteComment(htmlspecialchars($_GET['idComment']), htmlspecialchars($_GET['id']));
 		}
 		else
@@ -115,6 +121,8 @@ if(isset($_GET['action']))
 	{
 		if(isset($_GET['idComment']) AND $_GET['idComment']>0 AND isset($_GET['id']) AND $_GET['id']>0)
 		{
+			$_GET['idComment'] = (int) $_GET['idComment'];
+			$_GET['id'] = (int) $_GET['id'];
 			deleteCommentSignaled(htmlspecialchars($_GET['idComment']), htmlspecialchars($_GET['id']));
 		}
 		else
@@ -129,7 +137,7 @@ if(isset($_GET['action']))
 	{
 		if(!empty($_POST['myTitle']) AND !empty($_POST['myTextarea']))
 		{
-			addPost(htmlspecialchars($_POST['myTitle']), htmlspecialchars($_POST['myTextarea']));
+			addPost($_POST['myTitle'], $_POST['myTextarea']);
 		}
 		else
 		{
@@ -143,7 +151,8 @@ if(isset($_GET['action']))
 	{
 		if (isset($_GET['id']) AND $_GET['id']>0 AND isset($_POST['myTitle']) AND isset($_POST['myTextarea']))
 		{
-			updatePost(htmlspecialchars($_GET['id']), htmlspecialchars($_POST['myTitle']), htmlspecialchars($_POST['myTextarea']));
+			$_GET['id'] = (int) $_GET['id'];
+			updatePost(htmlspecialchars($_GET['id']), $_POST['myTitle'], $_POST['myTextarea']);
 		}
 		else
 		{
@@ -157,6 +166,8 @@ if(isset($_GET['action']))
 	{
 		if(isset($_GET['idComment']) AND $_GET['idComment']>0 AND isset($_GET['id']) AND $_GET['id']>0)
 		{
+			$_GET['idComment'] = (int) $_GET['idComment'];
+			$_GET['id'] = (int) $_GET['id'];
 			signalComment(htmlspecialchars($_GET['idComment']), htmlspecialchars($_GET['id']));
 		}
 		else
@@ -178,6 +189,7 @@ if(isset($_GET['action']))
 	{
 		if(isset($_GET['idComment']) AND $_GET['idComment']>0)
 		{
+			$_GET['idComment'] = (int) $_GET['idComment'];
 			deleteSignalComment(htmlspecialchars($_GET['idComment']));
 		}
 		else

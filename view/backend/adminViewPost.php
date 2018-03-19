@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!-- Disconnection -->
 
 <form method="post" action="view/backend/log.php">

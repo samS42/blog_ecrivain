@@ -1,5 +1,3 @@
-<?php session_start(); ?>
-
 <!-- Disconnection -->
 
 <form method="post" action="view/backend/log.php">
@@ -29,9 +27,7 @@
 	?>
 		Auteur: <?= $display['author'] ?><br/>
 		Commentaire: <?= $display['comment'] ?>
-		<?php
-		}
-		?>
+		
 
 		<!-- Delete comment button -->
 
@@ -44,8 +40,8 @@
 		<form method="post" action="/tests/blog_mvc/tests/POO/index.php?action=deleteSignal&idComment=<?= $display['id'] ?>">
 			<input type="submit" name="neRienFaire" value="Ne rien faire">
 		</form>
-	
 	<?php
+		}
 	}
 	?>
 </p>

@@ -4,7 +4,7 @@ namespace POO\model;
 
 require_once('model/Manager.php');
 
-class Commentmanager extends Manager
+class CommentManager extends Manager
 {
 	/*Display comments from the selected post*/
 
@@ -12,7 +12,7 @@ class Commentmanager extends Manager
 	{
 	$db = $this->call_db();
 
-	$db1 = $db->prepare('SELECT * FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
+	$db1 = $db->prepare('SELECT id, post_id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
 	$db1->execute(array($id_post));
 	
 		return $db1;

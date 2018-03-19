@@ -1,14 +1,14 @@
 <?php
 
-require_once('model/Postmanager.php');
-require_once('model/Commentmanager.php');
-require_once('model/Adminmanager.php');
+require_once('model/PostManager.php');
+require_once('model/CommentManager.php');
+require_once('model/AdminManager.php');
 
 /*Display front page (index.php)*/
 
 function listPosts()
 {
-	$postManager = new \POO\model\Postmanager();
+	$postManager = new \POO\model\PostManager();
 	$entry_db = $postManager->getPosts();
 
 	require('view/frontend/listPostsView.php');
@@ -16,8 +16,8 @@ function listPosts()
 
 function post($id_post)
 {
-	$postManager = new \POO\model\Postmanager();
-	$commentManager = new \POO\model\Commentmanager();
+	$postManager = new \POO\model\PostManager();
+	$commentManager = new \POO\model\CommentManager();
 
 	$db2 = $postManager->getPost($id_post);
 	$db1 = $commentManager->getComments($id_post);
@@ -27,7 +27,7 @@ function post($id_post)
 
 function addComment($id_post, $pseudo, $comment)
 {
-	$commentManager = new \POO\model\Commentmanager();
+	$commentManager = new \POO\model\CommentManager();
 
 	$recComm = $commentManager->comment($id_post, $pseudo, $comment);
 

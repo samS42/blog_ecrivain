@@ -4,7 +4,7 @@ namespace POO\model;
 
 require_once('model/Manager.php');
 
-class Adminmanager extends Manager
+class AdminManager extends Manager
 {
 	/*Admin's page connexion*/
 
@@ -33,7 +33,7 @@ class Adminmanager extends Manager
 	{
 		$db = $this->call_db();
 
-		$req = $db->prepare('SELECT id, title, date_creation, content FROM posts WHERE id = ?');
+		$req = $db->prepare('SELECT id, title, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation, content FROM posts WHERE id = ?');
 		$req->execute(array($id_post));
 		$display = $req->fetch();
 
@@ -44,7 +44,7 @@ class Adminmanager extends Manager
 	{
 		$db = $this->call_db();
 
-		$displayComment = $db->prepare('SELECT * FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
+		$displayComment = $db->prepare('SELECT id, post_id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
 		$displayComment->execute(array($id_post));
 	
 			return $displayComment;
@@ -116,7 +116,7 @@ class Adminmanager extends Manager
 			return $signalComment;
 	}
 
-	public function adminDisplaySignalComment(/*$id_comment, $author, $comment*/)
+	public function adminDisplaySignalComment()
 	{
 		$db = $this->call_db();
 

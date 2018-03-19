@@ -1,5 +1,4 @@
 <?php
-session_start();
 ob_start();
 
 	if(isset($_SESSION['pseudo']))
@@ -39,7 +38,7 @@ ob_start();
 	<!-- Get data from post-->
 
  <?= $db2['title'] ?>				le: <?= $db2['date_creation'] ?><br/>
- <?= $db2['content'] ?>				<!-- suppression de $idid=$db2['id']-->
+ <?= $db2['content'] ?>
 </p>
 
 	<h3>Les commentaires</h3>

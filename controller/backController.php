@@ -1,13 +1,12 @@
 <?php
 
-require_once('model/Postmanager.php');
-require_once('model/Commentmanager.php');
-require_once('model/Adminmanager.php');
+require_once('model/PostManager.php');
+require_once('model/CommentManager.php');
+require_once('model/AdminManager.php');
 
 function connexionAdmin($pseudo, $pass_form)
 {
-	session_start();
-	$adminManager = new \POO\model\Adminmanager();
+	$adminManager = new \POO\model\AdminManager();
 
 	$hashed_password = $adminManager->check_password($pseudo, $pass_form);
 
@@ -27,7 +26,7 @@ function connexionAdmin($pseudo, $pass_form)
 
 function listTitles()
 {
-	$adminManager = new \POO\model\Adminmanager();
+	$adminManager = new \POO\model\AdminManager();
 	$req = $adminManager->getTitles();
 
 	require('view/backend/adminView.php');
@@ -35,7 +34,7 @@ function listTitles()
 
 function displayPost($id_post)
 {
-	$adminManager = new \POO\model\Adminmanager();
+	$adminManager = new \POO\model\AdminManager();
 	$display = $adminManager->adminGetPost($id_post);
 	$displayComments = $adminManager->adminGetComments($id_post);
 
@@ -46,7 +45,7 @@ function displayPost($id_post)
 
 function deletePost($id_post)
 {
-	$adminManager = new \POO\model\Adminmanager();
+	$adminManager = new \POO\model\AdminManager();
 	$deletePost = $adminManager->adminDeletePost($id_post);
 	$deleteComments = $adminManager->adminDeleteComments($id_post);
 
@@ -59,7 +58,7 @@ function deletePost($id_post)
 
 function deleteComment($id_comment, $id_post)
 {
-	$adminManager = new \POO\model\Adminmanager();
+	$adminManager = new \POO\model\AdminManager();
 	$deleteComment = $adminManager->adminDeleteComment($id_comment);
 
 	header('Location: /tests/blog_mvc/tests/POO/index.php?action=adminPost&id=' . $id_post);
@@ -67,7 +66,7 @@ function deleteComment($id_comment, $id_post)
 
 function addPost($title, $content)
 {
-	$adminManager = new \POO\model\Adminmanager();
+	$adminManager = new \POO\model\AdminManager();
 	$addPost = $adminManager->adminAddPost($title, $content);
 
 	header('Location: /tests/blog_mvc/tests/POO/index.php?action=displayTitles');
@@ -75,7 +74,7 @@ function addPost($title, $content)
 
 function updatePost($id_post, $title, $content)
 {
-	$adminManager = new \POO\model\Adminmanager();
+	$adminManager = new \POO\model\AdminManager();
 	$updatePost = $adminManager->adminUpdatePost($id_post, $title, $content);
 
 	header('Location: /tests/blog_mvc/tests/POO/index.php?action=adminPost&id=' . $id_post);
@@ -83,10 +82,8 @@ function updatePost($id_post, $title, $content)
 
 function signalComment($id_comment, $id_post)
 {
-	$adminManager = new \POO\model\Adminmanager();
+	$adminManager = new \POO\model\AdminManager();
 	$signalComment = $adminManager->adminSignalComment($id_comment);
-
-
 
 	header('Location: /tests/blog_mvc/tests/POO/index.php?action=post&id=' . $id_post);
 
@@ -94,7 +91,7 @@ function signalComment($id_comment, $id_post)
 
 function displaySignalComment()
 {
-	$adminManager = new \POO\model\Adminmanager();
+	$adminManager = new \POO\model\AdminManager();
 	$displaySignalComment = $adminManager->adminDisplaySignalComment();
 
 	require('view/backend/adminAlertComment.php');
@@ -102,7 +99,7 @@ function displaySignalComment()
 
 function deleteSignalcomment($id_comment)
 {
-	$adminManager = new \POO\model\Adminmanager();
+	$adminManager = new \POO\model\AdminManager();
 	$deleteSignalcomment = $adminManager->adminDeleteSignalcomment($id_comment);
 	$displaySignalComment = $adminManager->adminDisplaySignalComment();
 
@@ -111,7 +108,7 @@ function deleteSignalcomment($id_comment)
 
 function deleteCommentSignaled($id_comment, $id_post)
 {
-	$adminManager = new \POO\model\Adminmanager();
+	$adminManager = new \POO\model\AdminManager();
 	$deleteComment = $adminManager->adminDeleteComment($id_comment);
 	$displaySignalComment = $adminManager->adminDisplaySignalComment();
 

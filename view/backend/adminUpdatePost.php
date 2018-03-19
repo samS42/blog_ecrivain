@@ -2,11 +2,14 @@
 <html>
 <head>
   <title>Ajouter un billet</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <script type="text/javascript" src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
   <script type="text/javascript">
   tinymce.init({
     selector: '#myTextarea',
     theme: 'modern',
+    entity_encoding : "raw",
+    encoding: "UTF-8",
     width: 600,
     height: 300,
     plugins: [

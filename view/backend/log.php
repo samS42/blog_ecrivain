@@ -9,4 +9,3 @@
 		
 		header('Location: /tests/blog_mvc/tests/POO/index.php');
 	}
-?>
