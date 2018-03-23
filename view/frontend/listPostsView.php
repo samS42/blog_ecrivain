@@ -1,15 +1,20 @@
-<?php 
+<?php
 	ob_start();
 
 	if(isset($_SESSION['pseudo']))
 	{
-		echo 'Bonjour ' . $_SESSION['pseudo'];
 ?>
-	<a href="index.php?action=displayTitles">Page d'administration</a>
-	<br/>
-	<form method="post" action="view/backend/log.php">
-		<input type="submit" name="logout" value="Déconnexion">
-	</form>
+	<div class="col-md-2 pull-right info">
+		<span class="pull-right">Bonjour <strong>Jean Forteroche</strong></span><br/>
+
+		
+		<a href="index.php?action=displayTitles" class="btn btn-success pull-right btn-block ">Page d'administration</a>
+		<br/>
+
+		<a href="view/backend/log.php?logout=1" class="btn btn-danger btn-block">Déconnexion</a>
+		
+		</div>
+
 		
 <?php
 	}
@@ -18,24 +23,26 @@
 ?>
 
 	<!-- Display form for the connexion -->
-
-	<form method="post" action="index.php?action=connexion&action2=displayTitles">
-		<label>Identifiant: </label><input type="text" name="id" id="id">
-		<label>Mots de passe: </label><input type="password" name="pass" id="pass">
-		<input type="submit" name="envoyer"/>
-	</form>
+	<div class="col-md-2 pull-right info">
+		<form method="post" action="index.php?action=connexion&action2=displayTitles" class="pull-right">
+			<div class="form-group">
+			<label for="id">Identifiant: </label><input type="text" class="form-control input-sm" name="id" id="id">
+			<label for="pass">Mots de passe: </label><input type="password" class="form-control input-sm" name="pass" id="pass">
+			<button class="btn btn-success form-control input-sm">Envoyer</button>
+			</div>
+		</form>
+		</div>
 
 <?php
 	}
 
-
-	$form = ob_get_clean() ?>
-
-<?php $title = 'Mon nouveau blog' ?>
+	$form = ob_get_clean()
+?>
 
 <?php ob_start();?>
 
-	<h1>Mon nouveau blog</h1>
+	<?php $title = 'Blog de Jean Forteroche' ?>
+	
 	<h2>Mes derniers billets</h2>
 	<p>
 
@@ -44,16 +51,20 @@
 		<?php
 		while($write_db = $entry_db->fetch())
 		{
-			?>
+		?>
+			
+			<h3><?= $write_db['title']?></h3>
+			Posté le: <?= $write_db['date_creation'] ?><br/>
 			<p>
-			<?php echo $write_db['title'] . '				' . $write_db['date_creation'] . '<br/>' . $write_db['content']; ?>
-			<a href="index.php?action=post&amp;id=<?= $write_db['id'] ?> ">Commentaires</a>
+				<?= $write_db['content']; ?>
+
+				<a href="index.php?action=post&amp;id=<?= $write_db['id'] ?> ">Commentaires</a>
 			</p>
-			<?php
+		<?php
 		}
 		$entry_db->closeCursor(); ?>
 	</p>
 
 	<?php $content = ob_get_clean() ?>
 
-<?php require('view/frontend/template.php'); ?>
+<?php require('view/frontend/frontTemplate.php'); ?>

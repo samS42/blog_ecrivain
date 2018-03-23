@@ -10,7 +10,7 @@ class PostManager extends Manager
 	public function getPosts()
 	{
 		$db = $this->call_db();
-		$entry_db = $db->query('SELECT id, title, content, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation FROM posts ORDER BY date_creation DESC LIMIT 0,4');
+		$entry_db = $db->query('SELECT id, title, content, DATE_FORMAT(date_creation, \'%d/%m/%Y\') AS date_creation FROM posts ORDER BY date_creation DESC LIMIT 0,4');
 		
 			return $entry_db;
 	}
@@ -21,7 +21,7 @@ class PostManager extends Manager
 	{
 		$db = $this->call_db();
 
-		$db1 = $db->prepare('SELECT id, title, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation, content FROM posts WHERE id = ?');
+		$db1 = $db->prepare('SELECT id, title, DATE_FORMAT(date_creation, \'%d/%m/%Y\') AS date_creation, content FROM posts WHERE id = ?');
 		$db1->execute(array($id_post));
 		$db2 = $db1->fetch();
 
