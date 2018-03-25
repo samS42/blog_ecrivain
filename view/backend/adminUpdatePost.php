@@ -1,60 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Ajouter un billet</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <script type="text/javascript" src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
-  <script type="text/javascript">
-  tinymce.init({
-    selector: '#myTextarea',
-    theme: 'modern',
-    entity_encoding : "raw",
-    encoding: "UTF-8",
-    width: 600,
-    height: 300,
-    plugins: [
-      'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
-      'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-      'save table contextmenu directionality emoticons template paste textcolor'
-    ],
-    content_css: 'css/content.css',
-    toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons'
-  });
+<?php ob_start() ?>
 
-  /*tinymce.init({
-    selector: '#myTitle',
-    theme: 'modern',
-    width: 600,
-    height: 10,
-    plugins: [
-      'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
-      'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-      'save table contextmenu directionality emoticons template paste textcolor'
-    ],
-    content_css: 'css/content.css',
-    menubar: false,
-    toolbar: false
-  });*/
+<div class="col-md-offset-1 col-md-4">
+<h1>Page d'administration</h1>
+</div>
+<div class="col-md-offset-5 col-md-2">
 
-  </script>
-</head>
+<a href="/tests/blog_mvc/tests/POO/index.php?action=displayTitles" class="btn btn-info btn-block">Retour aux billets</a>
+<a href="/tests/blog_mvc/tests/POO/index.php" class="btn btn-warning btn-block">Retour au site</a>
+<a href="log.php?logout=1" class="btn btn-danger btn-block">Déconnexion</a>
 
-<body>
- <form method="post" action="view/backend/log.php">
-  <input type="submit" name="logout" value="Déconnexion">
- </form>
+</div>
+<?php $header = ob_get_clean() ?>
 
- <a href="/tests/blog_mvc/tests/POO/index.php">Retour au site</a><br/>
- <a href="/tests/blog_mvc/tests/POO/index.php?action=displayTitles">Accueil page d'administration</a>
- 
-  <h1>Ajouter un billet</h1>
+  <h1>Modifier le billet</h1>
 
   <!-- Display content form from Tiny MCE -->
   
+<?php ob_start(); ?>
+
   <form action="/tests/blog_mvc/tests/POO/index.php?action=updatePost&id=<?= $_GET['id'] ?>" method="post">
-    <h3>Titre: </h3><input type="text" id="myTitle" name="myTitle" value="<?= $_GET['title'] ?>">
-    <h3>Contenu: </h3><textarea id="myTextarea" name="myTextarea"><?= $_GET['content'] ?></textarea>
+    <label for="myTitle">Titre: </label><input type="text" id="myTitle" name="myTitle" value="<?= $_GET['title'] ?>">
+    <label for="myTextarea"> Contenu: </label><textarea id="myTextarea" name="myTextarea"><?= $_GET['content'] ?></textarea>
     <input type="submit" value="Mettre à jour" />
   </form>
-</body>
-</html>
+  <?php $form = ob_get_clean(); ?>
+
+  <?php
+
+  $title_post = '';
+  $content = '';
+  $title_2 = '';
+  $comment = '';
+  $title_page = '';
+
+  ?>
+
+<?php require('backTemplate.php'); ?>

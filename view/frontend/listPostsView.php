@@ -56,9 +56,10 @@
 			<h3><?= $write_db['title']?></h3>
 			Posté le: <?= $write_db['date_creation'] ?><br/>
 			<p>
-				<?= $write_db['content']; ?>
+			<?php
+				echo mb_strimwidth($write_db['content'],0,200,"..."); ?>
 
-				<a href="index.php?action=post&amp;id=<?= $write_db['id'] ?> ">Commentaires</a>
+				<a href="index.php?action=post&amp;id=<?= $write_db['id'] ?> ">Lire la suite</a>
 			</p>
 		<?php
 		}

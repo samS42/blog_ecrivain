@@ -1,13 +1,20 @@
 <!-- Disconnection -->
+<?php ob_start() ?>
+<div class="col-md-offset-1 col-md-4">
+<h1>Page d'administration</h1>
+</div>
+<div class="col-md-offset-5 col-md-2">
 
-<form method="post" action="view/backend/log.php">
-	<input type="submit" name="logout" value="Déconnexion">
-</form>
+<a href="/tests/blog_mvc/tests/POO/index.php?action=displayTitles" class="btn btn-info btn-block">Retour aux billets</a>
+<a href="/tests/blog_mvc/tests/POO/index.php" class="btn btn-warning btn-block">Retour au site</a>
+<a href="view/backend/log.php?logout=1" class="btn btn-danger btn-block">Déconnexion</a>
 
-<a href="/tests/blog_mvc/tests/POO/index.php">Retour au site</a><br/>
-<a href="/tests/blog_mvc/tests/POO/index.php?action=displayTitles">Accueil page d'administration</a>
+</div>
+<?php $header = ob_get_clean() ?>
 
-<h1>Message(s) signalé(s)</h1>
+<?php $title_page = '<h2>Message(s) signalé(s)</h2>'; ?>
+
+<?php ob_start(); ?>
 
 <p>
 	<?php
@@ -25,25 +32,37 @@
 		else
 		{
 	?>
-		Auteur: <?= $display['author'] ?><br/>
+	<div class="row col-md-offset-1">
+		Auteur: <strong><?= $display['author'] ?></strong><br/>
 		Commentaire: <?= $display['comment'] ?>
+</p>
+<p>
+
+			<div class="pull-left">
+
+				<!-- Nothing button -->
+				<form method="post" action="/tests/blog_mvc/tests/POO/index.php?action=deleteSignal&idComment=<?= $display['id'] ?>">
+			<button class="btn btn-secondary btn-block" name="neRienFaire">Ne rien faire</button>
+		</form>
 		
-
 		<!-- Delete comment button -->
-
 		<form method="post" action="/tests/blog_mvc/tests/POO/index.php?action=adminDeleteComment&idComment=<?= $display['id'] ?>&id=<?= $display['post_id'] ?>">
-			<input type="submit" name="delete" value="Supprimer le commentaire">
-		</form>
+			<button class="btn btn-danger btn-block" name="delete">Supprimer le commentaire</button>
+		</form><br/>
 
-		<!-- Nothing button -->
-
-		<form method="post" action="/tests/blog_mvc/tests/POO/index.php?action=deleteSignal&idComment=<?= $display['id'] ?>">
-			<input type="submit" name="neRienFaire" value="Ne rien faire">
-		</form>
+		</div>
+</p>
+</div>
 	<?php
 		}
 	}
-	?>
-</p>
+$comment = ob_get_clean();
+
+  $title_post = '';
+  $content = '';
+  $title_2 = '';
+  $form = '';
+	
+require('backTemplate.php'); ?>
 
 	

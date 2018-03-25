@@ -33,7 +33,7 @@ class AdminManager extends Manager
 	{
 		$db = $this->call_db();
 
-		$req = $db->prepare('SELECT id, title, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation, content FROM posts WHERE id = ?');
+		$req = $db->prepare('SELECT id, title, DATE_FORMAT(date_creation, \'%d/%m/%Y\') AS date_creation, content FROM posts WHERE id = ?');
 		$req->execute(array($id_post));
 		$display = $req->fetch();
 

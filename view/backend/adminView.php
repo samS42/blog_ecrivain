@@ -6,7 +6,7 @@
 </div>
 <div class="col-md-offset-5 col-md-2">
 <a href="view/backend/log.php?logout=1" class="btn btn-danger btn-block">Déconnexion</a>
-<a href="/tests/blog_mvc/tests/POO/index.php" class="btn btn-success btn-block">Retour au site</a>
+<a href="/tests/blog_mvc/tests/POO/index.php" class="btn btn-warning btn-block">Retour au site</a>
 </div>
 <?php $header = ob_get_clean() ?>
 
@@ -48,6 +48,7 @@ while($title = $req->fetch())
 $content = ob_get_clean();
 $comment = '';
 $title_2 = '';
+$title_page = '';
 
 require('view/backend/backTemplate.php');
 ?>

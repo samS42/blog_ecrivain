@@ -68,7 +68,7 @@ ob_start();
 
 	while($db3 = $db1->fetch())
 	{ ?>
-		 <h5><strong><?= $db3['author'] ?></strong> le: <?= $db3['comment_date'] ?></h5><br/>
+		 <h5><strong><?= $db3['author'] ?></strong> le: <?= $db3['comment_date'] ?></h5>
 
 		 <?= $db3['comment'] ?> <a href="/tests/blog_mvc/tests/POO/index.php?action=signalComment&idComment=<?= $db3['id'] ?>&id=<?= $db2['id'] ?>" class="signal">(Signaler)</a>
 	</p> 
