@@ -8,7 +8,7 @@
 		<span class="pull-right">Bonjour <strong>Jean Forteroche</strong></span><br/>
 
 		
-		<a href="index.php?action=displayTitles" class="btn btn-success pull-right btn-block ">Page d'administration</a>
+		<a href="index.php?action=displayTitles" class="btn btn-info pull-right btn-block ">Page d'administration</a>
 		<br/>
 
 		<a href="view/backend/log.php?logout=1" class="btn btn-danger btn-block">Déconnexion</a>
@@ -43,8 +43,10 @@
 
 	<?php $title = 'Blog de Jean Forteroche' ?>
 	
+	<div id="title-list-posts" class="col-md-offset-3 col-md-6 col-md-offset-3">
 	<h2>Mes derniers billets</h2>
-	<p>
+	</div>
+	
 
 		<!-- Display posts list-->
 
@@ -52,7 +54,8 @@
 		while($write_db = $entry_db->fetch())
 		{
 		?>
-			
+
+			<div id="content-list-posts" class="col-md-offset-3 col-md-6 col-md-offset-3">
 			<h3><?= $write_db['title']?></h3>
 			Posté le: <?= $write_db['date_creation'] ?><br/>
 			<p>
@@ -61,10 +64,17 @@
 
 				<a href="index.php?action=post&amp;id=<?= $write_db['id'] ?> ">Lire la suite</a>
 			</p>
+			</div>
+		
 		<?php
 		}
 		$entry_db->closeCursor(); ?>
-	</p>
+
+		<div class="pagination">
+		<?php for ($i=1; $i <= $pages; $i++): ?>
+			<a href="?page=<?= $i ?>&perPage=<?= $perPage ?>"><?= $i ?></a>
+		<?php endfor; ?>
+	</div>
 
 	<?php $content = ob_get_clean() ?>
 

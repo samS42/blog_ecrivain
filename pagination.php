@@ -3,6 +3,7 @@
 $db = new PDO('mysql:host=localhost;dbname=miniuchat;charset=utf8', 'root', '');
 
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
 $perPage = isset($_GET['perPage']) && $_GET['perPage'] <= 50 ? (int)$_GET['perPage'] : 4;
 
 $start = ($page > 1) ? ($page * $perPage) - $perPage : 0;

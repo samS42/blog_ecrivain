@@ -7,7 +7,7 @@ ob_start();
 		<div class="col-md-2 pull-right info">
 		<span class="pull-right">Bonjour <strong>Jean Forteroche</strong></span><br/>
 		
-		<a href="index.php?action=displayTitles" class="btn btn-success pull-right btn-block ">Page d'administration</a>
+		<a href="index.php?action=displayTitles" class="btn btn-info pull-right btn-block ">Page d'administration</a>
 		<br/>
 
 		<a href="view/backend/log.php?logout=1" class="btn btn-danger btn-block">Déconnexion</a>
@@ -39,17 +39,23 @@ ob_start();
 
 	<!-- Get data from post-->
 
- <h2><?= $db2['title'] ?></h2>
+	<div id="title-post" class="col-md-offset-3 col-md-6 col-md-offset-3">
+	<h2><?= $db2['title'] ?></h2>
+	</div>
+
+ <div id="content-post" class="col-md-offset-3 col-md-6 col-md-offset-3">
  <p>Posté le: <?= $db2['date_creation'] ?></p>
  <p>
  <?= $db2['content'] ?>
-</p><br/>
+</div>
+</p>
+
 
 		<!-- comment add form -->
 
-		<h4> Ajouter un commentaire:</h4>
-		<div class="row">
 		
+		<div id="add-comment-post" class="row col-md-offset-3 col-md-6 col-md-offset-3">
+		<h4> Ajouter un commentaire:</h4><br/>
 		<p>
 		
 		<form class="col-md-4" method="POST" action="/tests/blog_mvc/tests/POO/index.php?action=addComment&id=<?= $db2['id'] ?>">
@@ -60,17 +66,21 @@ ob_start();
 	</p>
 </div>
 
-	<h3>Les commentaires</h3>
+	
 	<p>
+
+	<div id="comment-post" class="col-md-offset-3 col-md-6 col-md-offset-3">
+	<h4>Les commentaires</h4><br/>
+
+	<!-- Get comments from post -->
 	<?php
-
-	/*Get comments from post*/
-
 	while($db3 = $db1->fetch())
 	{ ?>
+		
 		 <h5><strong><?= $db3['author'] ?></strong> le: <?= $db3['comment_date'] ?></h5>
 
 		 <?= $db3['comment'] ?> <a href="/tests/blog_mvc/tests/POO/index.php?action=signalComment&idComment=<?= $db3['id'] ?>&id=<?= $db2['id'] ?>" class="signal">(Signaler)</a>
+		</div>
 	</p> 
 	<?php } ?>
 	

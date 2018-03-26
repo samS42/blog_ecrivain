@@ -15,16 +15,14 @@
 		<?= $form ?>
 		</div>
 		</header>
-	<div class="container">
+	
 	  <div class="row">
-	    <div class="col-md-12">
 	  <?= $content ?>
-	 	</div>
 	  </div>
-	</div>
+	
 	  <div class="row">
 	  
-	  	<div id="footer" class="col-md-12">
+	  	<div id="footer" class="col-md-12 footer">
 	  		<div id="pics" class="col-md-4">
 	  		<img class="thumbnail" src="doc/jean_forteroche.jpg" alt="jean_forteroche" height="120px" width="100px">
 	  		</div>

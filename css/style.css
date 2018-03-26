@@ -1,8 +1,16 @@
-body { background-color:#b3caef; }
+body { background-color: blue; }
 
-.container { background-color: #edf3ff; }
+/*.container { background-color: #edf3ff; }*/
 
 .header-page{ background-color: #CCC; }
+
+#title-list-posts { background-color: white; margin-top: 15px; }
+#content-list-posts { background-color: white; margin-bottom: 15px; margin-top: 15px; }
+
+#title-post { background-color: white; margin-top: 15px; }
+#content-post { background-color: white; }
+#comment-post { background-color: white; margin-bottom: 15px;}
+#add-comment-post { background-color: white; margin-top: 15px; margin-bottom: 15px; }
 
 .pull-right {  }
 

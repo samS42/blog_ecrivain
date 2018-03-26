@@ -7,16 +7,10 @@ require('controller/backController.php');
 try{
 if(isset($_GET['action']))
 {
-	/*Display listPostsView.php*/
-
-	if($_GET['action'] == 'listPosts')
-	{
-		listPosts();
-	}
 
 	/*Display post_view.php*/
 
-	elseif ($_GET['action'] == 'post')
+	if ($_GET['action'] == 'post')
 	{
 		if(isset($_GET['id']) AND is_numeric($_GET['id']) AND $_GET['id'] > 0)
 		{
@@ -203,7 +197,15 @@ if(isset($_GET['action']))
 
 else
 {
-	listPosts();
+	if (isset($_GET['page']) AND  is_numeric($_GET['page']))
+	{
+		listPosts($_GET['page']);
+	}
+	else
+	{
+		listPosts();
+	}
+	
 }
 
 }

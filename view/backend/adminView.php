@@ -30,21 +30,33 @@
 
 <?php $form = ob_get_clean() ?>
 
-<?php $title_post = '<h2>Mes billets:</h2>' ?>
+<?php $title_post = '' ?>
 
 <!-- Get and Display titles from posts -->
 
-<?php ob_start();
+<?php ob_start(); ?>
+<br>
+<div class="col-md-offset-2 col-md-8 coll-md-offset-2">
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<h2>Mes billets:</h2>
+	</div>
 
+<?php
 while($title = $req->fetch())
 {
 ?>
 
-<ul>
-	<li><a href="/tests/blog_mvc/tests/POO/index.php?action=adminPost&id=<?= $title['id'] ?>"><?= $title['title'] ?></a></li>
-</ul>
+
+<div class="list-group">
+	<a href="/tests/blog_mvc/tests/POO/index.php?action=adminPost&id=<?= $title['id'] ?>" class="list-group-item"><?= $title['title'] ?></a>
+</div>
+
 <?php 
-}
+} ?>
+</div>
+</div>
+<?php
 $content = ob_get_clean();
 $comment = '';
 $title_2 = '';
