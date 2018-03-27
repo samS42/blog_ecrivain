@@ -10,14 +10,36 @@ class PostManager extends Manager
 
 	/*Display post on the front page*/
 
-	public function getPosts($numPage=0)
+	/*public function getPosts($page)
 	{
 		$db = $this->call_db();
 		$entry_db = $db->prepare('SELECT id, title, content, DATE_FORMAT(date_creation, \'%d/%m/%Y\') AS date_creation FROM posts ORDER BY date_creation DESC LIMIT ?,?');
-		$entry_db->execute(array($numPage, self::NB_POSTS));
+		$entry_db->execute(array($page, self::NB_POSTS));
 
 			return $entry_db;
+	}*/
+
+
+	public function getPosts($numPage=0)
+	{
+	    // retrieve number total of posts
+	    $total_posts = $this->getNumPosts();
+	    
+	    // we ve got the page number here : $numPage
+	    // Some math to retrieve the right post to start with :
+        $nb_pages = ceil($total_posts / self::NB_POSTS);	    
+
+        $starting_post = $numPage * self::NB_POSTS;
+        
+	    $db = $this->call_db();
+		$entry_db = $db->prepare('SELECT id, title, content, DATE_FORMAT(date_creation, \'%d/%m/%Y\') 
+            AS date_creation FROM posts ORDER BY date_creation DESC LIMIT :post,:length');
+		$entry_db->bindValue(':post', $starting_post, \PDO::PARAM_INT);
+		$entry_db->bindValue(':length', self::NB_POSTS, \PDO::PARAM_INT);
+		$entry_db->execute();
+
 	}
+
 
 	/*Display selected post*/
 

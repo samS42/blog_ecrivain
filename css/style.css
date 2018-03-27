@@ -1,28 +1,27 @@
-body { background-color: blue; }
-
-/*.container { background-color: #edf3ff; }*/
+body { background-image: url(doc/new_a5.jpg); }
 
 .header-page{ background-color: #CCC; }
 
 #title-list-posts { background-color: white; margin-top: 15px; }
+.title-list-posts { background-color: white; margin-top: 15px; }
 #content-list-posts { background-color: white; margin-bottom: 15px; margin-top: 15px; }
 
 #title-post { background-color: white; margin-top: 15px; }
 #content-post { background-color: white; }
 #comment-post { background-color: white; margin-bottom: 15px;}
+.comment-post { background-color: white; margin-bottom: 15px;}
+.background-title { background-color: #ccdfff; }
 #add-comment-post { background-color: white; margin-top: 15px; margin-bottom: 15px; }
 
-.pull-right {  }
+.title-admin { padding-bottom: 60px; padding-top: 20px; }
 
-.info, .col-md-3 { background-color:; display: flex; flex-direction: column; align-items: center; }
+.list-group { word-wrap: break-word; }
 
-.btn {}
-
-h2 { text-decoration: underline; }
+.info, .col-md-3 { display: flex; flex-direction: column; align-items: center; }
 
 .signal:active, .signal:visited { color: red; }
 
-#footer { display: flex; justify-content: space-around; align-items: center; background-color: #CCC; }
+#footer { display: flex; justify-content: space-around; align-items: center; background-color: white; }
 
 #pics { padding-top: 20px; padding-left: 200px; }
 

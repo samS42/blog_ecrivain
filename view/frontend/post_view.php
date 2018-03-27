@@ -24,7 +24,7 @@ ob_start();
 			<div class="form-group">
 			<label for="id">Identifiant: </label><input type="text" class="form-control input-sm" name="id" id="id">
 			<label for="pass">Mots de passe: </label><input type="password" class="form-control input-sm" name="pass" id="pass">
-			<button class="btn btn-success form-control input-sm">Envoyer</button>
+			<button class="btn btn-info form-control input-sm">Envoyer</button>
 			</div>
 		</form>
 		</div>

@@ -199,11 +199,11 @@ else
 {
 	if (isset($_GET['page']) AND  is_numeric($_GET['page']))
 	{
-		listPosts($_GET['page']);
+			listPosts($_GET['page']);
 	}
 	else
 	{
-		listPosts();
+		listPosts(1);
 	}
 	
 }

@@ -6,10 +6,10 @@ require_once('model/AdminManager.php');
 
 /*Display front page (index.php)*/
 
-function listPosts($page=1)
+function listPosts($page=0)
 {
 	$postManager = new \POO\model\PostManager();
-		$pages = $postManager->getNumPosts();
+	$pages = $postManager->getNumPosts();
 	$entry_db = $postManager->getPosts($page);
 
 	$perPage = $postManager::NB_POSTS;
