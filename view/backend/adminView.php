@@ -5,8 +5,8 @@
 <h1 class="title-admin"><strong>Page d'administration</strong></h1>
 </div>
 <div class="col-md-offset-5 col-md-2">
+<a href="/tests/blog_mvc/tests/POO/index.php" class="btn btn-primary btn-block buttons-admin">Retour au site</a>
 <a href="view/backend/log.php?logout=1" class="btn btn-danger btn-block">Déconnexion</a>
-<a href="/tests/blog_mvc/tests/POO/index.php" class="btn btn-primary btn-block">Retour au site</a>
 </div>
 <?php $header = ob_get_clean() ?>
 
@@ -38,8 +38,8 @@
 <br>
 <div class="col-md-offset-2 col-md-8 coll-md-offset-2">
 <div class="panel panel-info">
-	<div class="panel-heading">
-		<h2>Mes billets:</h2>
+	<div id="panel-heading" class="panel-heading">
+		<h2 id="title-center">Mes billets</h2>
 	</div>
 
 <?php

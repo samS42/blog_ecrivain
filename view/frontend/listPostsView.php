@@ -4,18 +4,13 @@
 	if(isset($_SESSION['pseudo']))
 	{
 ?>
-	<div class="col-md-2 pull-right info">
-		<span class="pull-right">Bonjour <strong>Jean Forteroche</strong></span><br/>
-
+	<div class="buttons col-md-2 pull-right info">
+		<span class="pull-right">Bonjour <strong>Jean Forteroche</strong></span>
 		
-		<a href="index.php?action=displayTitles" class="btn btn-info pull-right btn-block ">Page d'administration</a>
-		<br/>
-
+		<a href="index.php?action=displayTitles" class="btn btn-primary pull-right btn-block ">Page d'administration</a>
 		<a href="view/backend/log.php?logout=1" class="btn btn-danger btn-block">Déconnexion</a>
 		
 		</div>
-
-		
 <?php
 	}
 	else
@@ -28,7 +23,7 @@
 			<div class="form-group">
 			<label for="id">Identifiant: </label><input type="text" class="form-control input-sm" name="id" id="id">
 			<label for="pass">Mots de passe: </label><input type="password" class="form-control input-sm" name="pass" id="pass">
-			<button class="btn btn-info form-control input-sm">Envoyer</button>
+			<button class="btn btn-primary form-control input-sm">Envoyer</button>
 			</div>
 		</form>
 		</div>
@@ -43,10 +38,9 @@
 
 	<?php $title = 'Blog de Jean Forteroche' ?>
 	
-	<div id="title-list-posts" class="col-md-offset-3 col-md-6 col-md-offset-3">
-	<h2>Mes derniers billets</h2>
+	<div class="col-md-offset-4 col-md-4 col-md-offset-4">
+	<h2 id="title_view_posts"><strong>Mes derniers billets</strong></h2>
 	</div>
-	
 
 		<!-- Display posts list-->
 
@@ -56,8 +50,12 @@
 		?>
 
 			<div id="content-list-posts" class="col-md-offset-3 col-md-6 col-md-offset-3">
-			<h3><?= $write_db['title']?></h3>
+			<div class="panel panel-info">
+			<div id="panel-heading" class="panel-heading">
+			<h3 id="title-center"><?= $write_db['title']?></h3>
 			Posté le: <?= $write_db['date_creation'] ?><br/>
+			</div>
+			<div class="list-group">
 			<p>
 			<?php
 				echo mb_strimwidth($write_db['content'],0,200,"..."); ?>
@@ -65,17 +63,23 @@
 				<a href="index.php?action=post&amp;id=<?= $write_db['id'] ?> ">Lire la suite</a>
 			</p>
 			</div>
+			</div>
+		</div>
 		
 		<?php
 		}
 		$entry_db->closeCursor(); ?>
 
-		<div class="pagination">
-		<?php for ($i=1; $i <= $pages; $i++): ?>
-			<a href="?page=<?= $i ?>&perPage=<?= $perPage ?>"><?= $i ?></a>
-		<?php endfor; ?>
-	</div>
-
 	<?php $content = ob_get_clean() ?>
+
+	<?php ob_start(); ?>
+
+	<ul class="pagination">
+		<?php for ($i=1; $i <= $nb_pages; $i++): ?>
+			<li><a href="?page=<?= $i ?>&perPage=<?= $perPage ?>"><?= $i ?></a></li>
+		<?php endfor; ?>
+		</ul>
+
+	<?php $pagination = ob_get_clean(); ?>
 
 <?php require('view/frontend/frontTemplate.php'); ?>

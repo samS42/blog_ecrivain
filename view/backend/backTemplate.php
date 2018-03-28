@@ -8,8 +8,7 @@
     theme: 'modern',
     entity_encoding : "raw",
     encoding: "UTF-8",
-    width: 1000,
-    height: 500,
+    height: 475,
     plugins: [
       'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
       'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',

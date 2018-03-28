@@ -5,7 +5,7 @@
 </div>
 <div class="col-md-offset-5 col-md-2">
 
-<a href="/tests/blog_mvc/tests/POO/index.php?action=displayTitles" class="btn btn-primary btn-block">Retour aux billets</a>
+<a href="/tests/blog_mvc/tests/POO/index.php?action=displayTitles" class="btn btn-primary btn-block buttons-admin">Retour aux billets</a>
 <a href="/tests/blog_mvc/tests/POO/index.php" class="btn btn-primary btn-block">Retour au site</a>
 <a href="view/backend/log.php?logout=1" class="btn btn-danger btn-block">Déconnexion</a>
 

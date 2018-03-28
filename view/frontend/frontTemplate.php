@@ -9,20 +9,19 @@
 <body>
 	
 		<header class="header-page">
-		
-		<h1 class="col-md-offset-1 col-md-5 "><strong><?= $title ?></strong></h1>
-	
+		<h1 class="title-front col-md-offset-1 col-md-5 "><strong><?= $title ?></strong></h1>
 		<?= $form ?>
-	
 		</header>
 	
 	  <div class="row">
 	  <?= $content ?>
 	  </div>
-	
+
 	  <div class="row">
+	  	<?= $pagination ?>
+	  </div>
 	  
-	  	<div id="footer" class="col-md-12 footer">
+	  	<footer id="footer" class="col-md-12">
 	  		<div id="pics" class="col-md-4">
 	  		<img class="thumbnail" src="/tests/blog_mvc/tests/POO/css/doc/jean_forteroche.jpg" alt="jean_forteroche" height="120px" width="100px">
 	  		</div>
@@ -32,7 +31,7 @@
 	  		<div id="mention" class="col-md-4">
 	  			<a href="#">Mentions légales</a>
 	  		</div>
-	  	</div>
-	  </div>
+	  	</footer>
+
 </body>
 </html>

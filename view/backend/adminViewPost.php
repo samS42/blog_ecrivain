@@ -5,7 +5,7 @@
 </div>
 <div class="col-md-offset-5 col-md-2">
 
-<a href="/tests/blog_mvc/tests/POO/index.php?action=displayTitles" class="btn btn-primary btn-block">Retour aux billets</a>
+<a href="/tests/blog_mvc/tests/POO/index.php?action=displayTitles" class="btn btn-primary btn-block buttons-admin">Retour aux billets</a>
 <a href="/tests/blog_mvc/tests/POO/index.php" class="btn btn-primary btn-block">Retour au site</a>
 <a href="view/backend/log.php?logout=1" class="btn btn-danger btn-block">Déconnexion</a>
 
@@ -38,8 +38,8 @@
 <br/>
 <div class="col-md-offset-2 col-md-8 coll-md-offset-2">
 <div class="panel panel-info">
-	<div class="panel-heading">
-		<h2><?= $display['title'] ?></h2>
+	<div id="panel-heading" class="panel-heading">
+		<h2 id="title-center"><?= $display['title'] ?></h2>
 		le: <strong><?= $display['date_creation'] ?></strong>
 	</div>
 
@@ -54,12 +54,11 @@
 
 <div class="col-md-offset-2 col-md-8 coll-md-offset-2">
 	<div class="panel panel-info">
-	<div class="panel-heading">
-<h3>Commentaires</h3>
+	<div id="panel-heading" class="panel-heading">
+<h3 id="title-center">Commentaires</h3>
 </div>
 
 <!-- Display comments -->
-
 
 <?php
 
@@ -74,7 +73,6 @@ while ($comments = $displayComments->fetch())
 
 	<a href="/tests/blog_mvc/tests/POO/index.php?action=deleteComment&idComment=<?= $comments['id'] ?>&id=<?= $comments['post_id'] ?>" >Supprimer le commentaire</a>
 	</div>
-
 
 <?php
 } ?>

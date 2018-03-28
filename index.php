@@ -203,7 +203,7 @@ else
 	}
 	else
 	{
-		listPosts(1);
+		listPosts();
 	}
 	
 }
