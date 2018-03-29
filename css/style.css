@@ -1,4 +1,6 @@
-html, body { background-image: url(doc/new_a5.jpg); background-attachment: fixed;}
+html, body { margin: 0; padding: 0; background: url(doc/new_a5.jpg) no-repeat center fixed; background-size: cover;}
+
+.row { margin-right: 0px; margin-left: 0px; }
 
 /*.header-page{ background-color: #CCC; }*/
 
@@ -13,20 +15,19 @@ html, body { background-image: url(doc/new_a5.jpg); background-attachment: fixed
 .background-title { background-color: #ccdfff; }
 /*#add-comment-post { background-color: white; margin-top: 15px; margin-bottom: 15px; }*/
 
-.title-admin { padding-bottom: 60px; padding-top: 20px; }
+.title-admin { padding-bottom: 60px; padding-top: 10px; }
 .title-front { padding-bottom: 60px; padding-top: 20px; }
 
 #title-center { text-align: center; font-weight: bold; }
 
 .buttons { padding-top: 10px; }
 .buttons-admin { margin-top: 10px; }
+#width-button-padd { padding-bottom: 20px; }
 
-#subtitle-border { border: solid; padding: 10px; }
+#subtitle-border { text-align: center; border: solid; padding: 10px; margin-bottom: 25px; }
 #title_view_posts { text-align: center; border: solid; padding: 10px; margin-bottom: 25px; }
 
 #panel-heading { background-color: #e2d6ce; padding: 5px;}
-
-/*#group-buttons { padding-bottom: 50px; }*/
 
 .list-group { word-wrap: break-word; }
 #list-group { background-color: white; }
@@ -47,3 +48,13 @@ footer { position: absolute; bottom: 0; }
 #address { padding-left: 170px; }
 
 #mention { padding-left: 175px; }
+
+@media (max-width: 768px)
+{
+	#width-button { float: unset; }
+	#width-button-padd { float: unset; }
+	.title-admin { padding-bottom: 0px; padding-top: 10px; }
+	.buttons-admin { margin-top: -20px; }
+
+	#add-signal-post { padding: 15px; }
+}
