@@ -73,12 +73,13 @@
 	<?php $content = ob_get_clean() ?>
 
 	<?php ob_start(); ?>
-
+	<div id="pagination" class="col-md-12">
 	<ul class="pagination">
 		<?php for ($i=1; $i <= $nb_pages; $i++): ?>
-			<li><a href="?page=<?= $i ?>&perPage=<?= $perPage ?>"><?= $i ?></a></li>
+			<li><a href="<?= ROOT; ?>/index.php?action=index&page=<?= $i ?>&perPage=<?= $perPage ?>"><?= $i ?></a></li>
 		<?php endfor; ?>
 	</ul>
+</div>
 
 	<?php $pagination = ob_get_clean(); ?>
 

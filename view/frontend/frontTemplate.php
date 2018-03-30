@@ -3,10 +3,12 @@
 <head>
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<meta charset="utf-8">
 	<title><?= $title ?></title>
 </head>
 <body>
+	<div class="main">
 		<header class="header-page">
 		<h1 class="title-front col-xs-12 col-sm-offset-1 col-sm-4 col-md-offset-1 col-md-5 "><strong><?= $title ?></strong></h1>
 		<?= $form ?>
@@ -20,17 +22,30 @@
 	  	<?= $pagination ?>
 	  </div>
 	  
+	  <div class="row">
 	  	<footer id="footer" class="col-xs-12 col-sm-12 col-md-12">
-	  		<div id="pics" class="col-md-4">
-	  		<img class="thumbnail hidden-xs hidden-sm " src="/tests/blog_mvc/tests/POO/css/doc/jean_forteroche.jpg" alt="jean_forteroche" height="120px" width="100px">
-	  		</div>
-	  		<div id="address" class="col-md-4">
+
+	  		<div id="address" class="col-xs-12 col-sm-3 col-md-3">
 	  			<p>jean_forteroche@gmail.com</p>
 	  		</div>
-	  		<div id="mention" class="col-md-4">
+
+	  		<div id="pics" class="col-xs-12 col-sm-3 col-md-3">
+	  			<img class="thumbnail " src="css/doc/jean_forteroche.jpg" alt="jean_forteroche" height="120px" width="100px">
+	  		</div>
+
+	  		<div id="social-media" class="col-xs-12 col-sm-3 col-md-3">
+	  				<a href="#"><i class="fa fa-facebook fa-lg"></i></a>
+	  				<a href="#"><i class="fa fa-twitter fa-lg"></i></a>
+	  				<a href="#"><i class="fa fa-youtube fa-lg"></i></a>
+	  				<a href="#"><i class="fa fa-linkedin fa-lg"></i></a>
+	  		</div>
+
+	  		<div id="mention" class="col-xs-12 col-sm-3 col-md-3">
 	  			<a href="#">Mentions légales</a>
 	  		</div>
 	  	</footer>
+	  </div>
+	</div>
 
 </body>
 </html>

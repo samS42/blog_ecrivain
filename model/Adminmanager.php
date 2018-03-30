@@ -24,7 +24,7 @@ class AdminManager extends Manager
 	public function getTitles()
 	{
 		$db = $this->call_db();
-		$req = $db->query('SELECT * FROM posts ORDER BY date_creation DESC');
+		$req = $db->query('SELECT * FROM posts ORDER BY id DESC');
 		
 			return $req;
 	}

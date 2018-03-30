@@ -7,7 +7,7 @@ require_once('model/Manager.php');
 class PostManager extends Manager
 {
 	/*Number of posts per page*/
-	const NB_POSTS = 3;
+	const NB_POSTS = 4;
 
 	/*Display post on the front page*/
 	public function getPosts($numPage=1)

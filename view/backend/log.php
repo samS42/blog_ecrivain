@@ -7,7 +7,7 @@
 	{
 		session_destroy();
 		
-		header('Location: /tests/blog_mvc/tests/POO/index.php');
+		header('Location: /index.php?action=index');
 	}
 	else
 	{

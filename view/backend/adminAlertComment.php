@@ -5,8 +5,8 @@
 </div>
 <div id="width-button" class="buttons front col-xs-offset-3 col-xs-6 col-xs-offset-3 col-sm-offset-3 col-sm-4 col-md-offset-3 col-md-3 pull-right info">
 
-<a href="/tests/blog_mvc/tests/POO/index.php?action=displayTitles" class="btn btn-primary btn-block buttons-admin">Retour aux billets</a>
-<a href="/tests/blog_mvc/tests/POO/index.php" class="btn btn-primary btn-block">Retour au site</a>
+<a href="<?= ROOT; ?>/index.php?action=displayTitles" class="btn btn-primary btn-block buttons-admin">Retour aux billets</a>
+<a href="<?= ROOT; ?>/index.php?action=index" class="btn btn-primary btn-block">Retour au site</a>
 <a href="view/backend/log.php?logout=1" class="btn btn-danger btn-block">Déconnexion</a>
 
 </div>
@@ -37,12 +37,12 @@
 			<div class="list-group">
 
 				<!-- Nothing button -->
-				<form method="post" action="/tests/blog_mvc/tests/POO/index.php?action=deleteSignal&idComment=<?= $display['id'] ?>">
+				<form method="post" action="<?= ROOT; ?>/index.php?action=deleteSignal&idComment=<?= $display['id'] ?>">
 			<button class="btn btn-primary btn-block" name="neRienFaire">Ne rien faire</button>
 		</form>
 		
 		<!-- Delete comment button -->
-		<form method="post" action="/tests/blog_mvc/tests/POO/index.php?action=adminDeleteComment&idComment=<?= $display['id'] ?>&id=<?= $display['post_id'] ?>">
+		<form method="post" action="<?= ROOT; ?>/index.php?action=adminDeleteComment&idComment=<?= $display['id'] ?>&id=<?= $display['post_id'] ?>">
 			<button class="btn btn-danger btn-block" name="delete">Supprimer le commentaire</button>
 		</form>
 </div>

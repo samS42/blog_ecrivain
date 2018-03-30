@@ -51,7 +51,7 @@ function deletePost($id_post)
 
 	listTitles();
 
-	header('Location: /tests/blog_mvc/tests/POO/index.php?action=displayTitles');
+	header('Location: /index.php?action=displayTitles');
 }
 
 /*Delete signaled comment*/
@@ -61,7 +61,7 @@ function deleteComment($id_comment, $id_post)
 	$adminManager = new \POO\model\AdminManager();
 	$deleteComment = $adminManager->adminDeleteComment($id_comment);
 
-	header('Location: /tests/blog_mvc/tests/POO/index.php?action=adminPost&id=' . $id_post);
+	header('Location: /index.php?action=adminPost&id=' . $id_post);
 }
 
 function addPost($title, $content)
@@ -69,7 +69,15 @@ function addPost($title, $content)
 	$adminManager = new \POO\model\AdminManager();
 	$addPost = $adminManager->adminAddPost($title, $content);
 
-	header('Location: /tests/blog_mvc/tests/POO/index.php?action=displayTitles');
+	header('Location: index.php?action=displayTitles');
+}
+
+function displayUpdatePost($id_post)
+{
+	$postManager = new \POO\model\PostManager();
+	$db2 = $postManager->getPost($id_post);
+
+	require('view/backend/adminUpdatePost.php');
 }
 
 function updatePost($id_post, $title, $content)
@@ -77,7 +85,7 @@ function updatePost($id_post, $title, $content)
 	$adminManager = new \POO\model\AdminManager();
 	$updatePost = $adminManager->adminUpdatePost($id_post, $title, $content);
 
-	header('Location: /tests/blog_mvc/tests/POO/index.php?action=adminPost&id=' . $id_post);
+	header('Location: index.php?action=adminPost&id=' . $id_post);
 }
 
 function signalComment($id_comment, $id_post)
@@ -85,8 +93,13 @@ function signalComment($id_comment, $id_post)
 	$adminManager = new \POO\model\AdminManager();
 	$signalComment = $adminManager->adminSignalComment($id_comment);
 
-	header('Location: /tests/blog_mvc/tests/POO/index.php?action=post&id=' . $id_post);
+	header('Location: index.php?action=post&id=' . $id_post);
 
+}
+
+function displayAddPost()
+{
+	require('view/backend/adminAddPost.php');
 }
 
 function displaySignalComment()

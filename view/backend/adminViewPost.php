@@ -6,8 +6,8 @@
 
 <div id="width-button" class="buttons front col-xs-offset-3 col-xs-6 col-xs-offset-3 col-sm-offset-3 col-sm-4 col-md-offset-3 col-md-3 pull-right info">
 
-<a href="/tests/blog_mvc/tests/POO/index.php?action=displayTitles" class="btn btn-primary btn-block buttons-admin">Retour aux billets</a>
-<a href="/tests/blog_mvc/tests/POO/index.php" class="btn btn-primary btn-block">Retour au site</a>
+<a href="<?= ROOT; ?>/index.php?action=displayTitles" class="btn btn-primary btn-block buttons-admin">Retour aux billets</a>
+<a href="<?= ROOT; ?>/index.php?action=index" class="btn btn-primary btn-block">Retour au site</a>
 <a href="view/backend/log.php?logout=1" class="btn btn-danger btn-block">Déconnexion</a>
 
 </div>
@@ -19,14 +19,14 @@
 	<div id="add-signal-post" class="form-group">
 
 	<div class="col-xs-offset-3 col-xs-6 col-xs-offset-3 col-sm-offset-2 col-sm-3  col-md-offset-2 col-md-3">
-	<form method="post" action="/tests/blog_mvc/tests/POO/view/backend/adminUpdatePost.php?action=updatePost&id=<?= $display['id']; ?>&title=<?= $display['title'] ?>&content=<?= $display['content'] ?>">
+	<form method="post" action="<?= ROOT; ?>/index.php?action=displayUpdatePost&id=<?= $display['id']; ?>">
 		<input type="submit" name="update" value="Modifier le billet" class="btn btn-primary btn-block btn-lg">
 	</form>
 </div>
 
 	<!-- Delete post button -->
 			<div class="col-xs-offset-3 col-xs-6 col-xs-offset-3 col-sm-offset-2 col-sm-3 col-sm-offset-2  col-md-offset-2 col-md-3 col-md-offset-2">
-	<form method="post" action="/tests/blog_mvc/tests/POO/index.php?action=deletePost&idPost=<?= $display['id'] ?>">
+	<form method="post" action="index.php?action=deletePost&idPost=<?= $display['id'] ?>">
 		<button class="btn btn-danger btn-block btn-lg" name="delete">Supprimer le billet</button>
 	</form>
 </div>
@@ -72,7 +72,7 @@ while ($comments = $displayComments->fetch())
 	<p>a publié le: <?= $comments['comment_date']; ?></p>
 	<p><?= $comments['comment']; ?></p>
 
-	<a href="/tests/blog_mvc/tests/POO/index.php?action=deleteComment&idComment=<?= $comments['id'] ?>&id=<?= $comments['post_id'] ?>" >Supprimer le commentaire</a>
+	<a href="/index.php?action=deleteComment&idComment=<?= $comments['id'] ?>&id=<?= $comments['post_id'] ?>" >Supprimer le commentaire</a>
 	</div>
 
 <?php

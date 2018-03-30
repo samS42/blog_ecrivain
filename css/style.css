@@ -27,7 +27,7 @@ html, body { margin: 0; padding: 0; background: url(doc/new_a5.jpg) no-repeat ce
 #subtitle-border { text-align: center; border: solid; padding: 10px; margin-bottom: 25px; }
 #title_view_posts { text-align: center; border: solid; padding: 10px; margin-bottom: 25px; }
 
-#panel-heading { background-color: #e2d6ce; padding: 5px;}
+#panel-heading { background-color: #e2d6ce; padding: 5px; }
 
 .list-group { word-wrap: break-word; }
 #list-group { background-color: white; }
@@ -37,17 +37,21 @@ html, body { margin: 0; padding: 0; background: url(doc/new_a5.jpg) no-repeat ce
 
 .signal:active, .signal:visited { color: red; }
 
+#pagination { padding-bottom: 50px; padding-top: 50px; }
 .pagination { display: flex; justify-content: center; }
 .pagination > li > a { background-color: #e2d6ce; font-weight: bold; }
 
-footer { position: absolute; bottom: 0; }
-#footer { display: flex; justify-content: space-around; align-items: center; background-color: #e2d6ce;}
 
-#pics { padding-top: 20px; padding-left: 200px; }
+#footer { background-color: #e2d6ce; }
 
-#address { padding-left: 170px; }
+#address { display: flex; justify-content: center; padding-top: 60px; }
 
-#mention { padding-left: 175px; }
+#pics { display: flex; justify-content: center; padding-top: 15px; }
+
+#social-media { display: flex; flex-direction: row; justify-content: center; padding-top: 55px; }
+.fa { padding: 10px }
+
+#mention { display: flex; justify-content: center; padding-top: 60px; }
 
 @media (max-width: 768px)
 {
@@ -57,4 +61,9 @@ footer { position: absolute; bottom: 0; }
 	.buttons-admin { margin-top: -20px; }
 
 	#add-signal-post { padding: 15px; }
+
+	#address { padding-top: 8px; }
+	#pics { padding-top: 8px; }
+	#social-media { padding-top: 8px; }
+	#mention { padding-top: 8px; }
 }

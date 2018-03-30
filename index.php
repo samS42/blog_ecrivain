@@ -1,5 +1,10 @@
 <?php
 session_start();
+/*Local*/
+/*const ROOT = "/tests/blog_mvc/tests/POO";*/
+
+/*On line*/
+const ROOT = "";
 
 require('controller/frontController.php');
 require('controller/backController.php');
@@ -139,6 +144,18 @@ if(isset($_GET['action']))
 		}
 	}
 
+	elseif ($_GET['action'] == 'displayUpdatePost')
+	{
+		if (isset($_GET['id']) AND is_numeric($_GET['id']))
+		{
+			displayUpdatePost($_GET['id']);
+		}
+		else
+		{
+			throw new Exception('Touts les champs n\'ont pas été renseignées');
+		}
+	}
+
 	/*Update post*/
 
 	elseif ($_GET['action'] == 'updatePost')
@@ -170,6 +187,11 @@ if(isset($_GET['action']))
 		}
 	}
 
+	elseif ($_GET['action'] == 'displayAddPost')
+	{
+		displayAddPost();
+	}
+
 	/*Display signaled comment*/
 
 	elseif ($_GET['action'] == 'displaySignalComment')
@@ -191,21 +213,24 @@ if(isset($_GET['action']))
 			throw new Exception('Le signalement n\' pas été supprimé');
 		}
 	}
+	elseif ($_GET['action'] == 'index')
+	{
+		if (isset($_GET['page']) AND  is_numeric($_GET['page']))
+		{
+			listPosts($_GET['page']);
+		}
+		else
+		{
+			listPosts();
+		}
+	}
 }
 	
 /*Comeback index.php*/
 
 else
 {
-	if (isset($_GET['page']) AND  is_numeric($_GET['page']))
-	{
-			listPosts($_GET['page']);
-	}
-	else
-	{
-		listPosts();
-	}
-	
+	index();
 }
 
 }

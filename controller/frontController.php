@@ -4,6 +4,12 @@ require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 require_once('model/AdminManager.php');
 
+
+function index()
+{
+	require('view/frontend/homePage.php');
+}
+
 /*Display front page (index.php)*/
 
 function listPosts($page=1)

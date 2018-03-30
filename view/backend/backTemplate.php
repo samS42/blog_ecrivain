@@ -18,10 +18,10 @@
     toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons'
   });
   </script>
-	<link href="../../css/bootstrap.css" rel="stylesheet" type="text/css">
-	<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-	<link href="../../css/style.css" rel="stylesheet" type="text/css">
-	<link href="css/style.css" rel="stylesheet" type="text/css">
+
+	<link href="<?= ROOT; ?>/css/bootstrap.css" rel="stylesheet" type="text/css">
+
+	<link href="<?= ROOT; ?>/css/style.css" rel="stylesheet" type="text/css">
 	<meta charset="utf-8">
 	  
 </head>
