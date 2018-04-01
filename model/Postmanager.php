@@ -23,7 +23,7 @@ class PostManager extends Manager
         
 	    $db = $this->call_db();
 		$entry_db = $db->prepare('SELECT id, title, content, DATE_FORMAT(date_creation, \'%d/%m/%Y\') 
-            AS date_creation FROM posts ORDER BY date_creation DESC LIMIT :post,:length');
+            AS date_creation FROM posts ORDER BY id DESC LIMIT :post,:length');
 		$entry_db->bindValue('post', $starting_post, \PDO::PARAM_INT);
 		$entry_db->bindValue('length', self::NB_POSTS, \PDO::PARAM_INT);
 		$entry_db->execute();

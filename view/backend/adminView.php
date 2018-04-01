@@ -14,15 +14,15 @@
 <!-- Display add post button -->
 <?php ob_start() ?>
 <div id="add-signal-post" class="form-group">
-	<div class="col-xs-offset-3 col-xs-6 col-xs-offset-3 col-sm-offset-2 col-sm-3  col-md-offset-2 col-md-3">
-<form method="post" action="<?= ROOT; ?>/index.php?action=displayAddPost" >
+	<div class="col-xs-offset-3 col-xs-6 col-xs-offset-3 col-sm-offset-2 col-sm-3 col-md-offset-3 col-md-6 col-md-offset-3">
+<form class="button-admin-view" method="post" action="<?= ROOT; ?>/index.php?action=displayAddPost" >
 	<button class="btn btn-primary btn-block btn-lg" name="add">Ajouter un billet</button>
 </form>
 </div>
 
 <!-- Display signaled comments button -->
-<div class="col-xs-offset-3 col-xs-6 col-xs-offset-3 col-sm-offset-2 col-sm-3 col-sm-offset-2  col-md-offset-2 col-md-3 col-md-offset-2">
-<form method="post" action="<?= ROOT; ?>/index.php?action=displaySignalComment" >
+<div class="col-xs-offset-3 col-xs-6 col-xs-offset-3 col-sm-offset-2 col-sm-3 col-sm-offset-2 col-md-offset-3 col-md-6 col-md-offset-3">
+<form class="button-admin-view" method="post" action="<?= ROOT; ?>/index.php?action=displaySignalComment" >
 	<input type="submit" name="signal" value="Commentaire(s) signalé(s)" class="btn btn-primary btn-block btn-lg">
 </form>
 </div>

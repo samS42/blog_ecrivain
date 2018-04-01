@@ -25,7 +25,7 @@
 	<meta charset="utf-8">
 	  
 </head>
-<body>
+<body id="body">
 	 <header class="header-page">
 	 
 		<?= $header ?>

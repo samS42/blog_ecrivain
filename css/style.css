@@ -1,4 +1,4 @@
-html, body { margin: 0; padding: 0; background: url(doc/new_a5.jpg) no-repeat center fixed; background-size: cover;}
+#body { margin: 0; padding: 0; background: url(doc/new_a5.jpg) no-repeat center fixed; background-size: cover;}
 
 .row { margin-right: 0px; margin-left: 0px; }
 
@@ -17,8 +17,9 @@ html, body { margin: 0; padding: 0; background: url(doc/new_a5.jpg) no-repeat ce
 
 .title-admin { padding-bottom: 60px; padding-top: 10px; }
 .title-front { padding-bottom: 60px; padding-top: 20px; }
-
 #title-center { text-align: center; font-weight: bold; }
+
+.button-admin-view { display: flex; flex-direction: column; padding-top: 5px; }
 
 .buttons { padding-top: 10px; }
 .buttons-admin { margin-top: 10px; }
@@ -37,7 +38,7 @@ html, body { margin: 0; padding: 0; background: url(doc/new_a5.jpg) no-repeat ce
 
 .signal:active, .signal:visited { color: red; }
 
-#pagination { padding-bottom: 50px; padding-top: 50px; }
+#pagination { padding-bottom: 50px; padding-top: 60px; }
 .pagination { display: flex; justify-content: center; }
 .pagination > li > a { background-color: #e2d6ce; font-weight: bold; }
 

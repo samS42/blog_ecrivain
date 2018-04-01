@@ -7,7 +7,7 @@
 	<meta charset="utf-8">
 	<title><?= $title ?></title>
 </head>
-<body>
+<body id="body">
 	<div class="main">
 		<header class="header-page">
 		<h1 class="title-front col-xs-12 col-sm-offset-1 col-sm-4 col-md-offset-1 col-md-5 "><strong><?= $title ?></strong></h1>
