@@ -1,8 +1,9 @@
 <?php
 
-require_once('model/PostManager.php');
-require_once('model/CommentManager.php');
-require_once('model/AdminManager.php');
+require('model/vendor/autoload.php');
+
+use Acme\PostManager;
+use Acme\CommentManager;
 
 
 function index()
@@ -14,7 +15,7 @@ function index()
 
 function listPosts($page=1)
 {
-	$postManager = new \POO\model\PostManager();
+	$postManager = new PostManager();
 	$total_posts = $postManager->getNumPosts();
 	$perPage = $postManager::NB_POSTS;
 	$nb_pages = ceil($total_posts / $perPage);
@@ -25,8 +26,8 @@ function listPosts($page=1)
 
 function post($id_post)
 {
-	$postManager = new \POO\model\PostManager();
-	$commentManager = new \POO\model\CommentManager();
+	$postManager = new PostManager();
+	$commentManager = new CommentManager();
 
 	$db2 = $postManager->getPost($id_post);
 	$db1 = $commentManager->getComments($id_post);
@@ -36,7 +37,7 @@ function post($id_post)
 
 function addComment($id_post, $pseudo, $comment)
 {
-	$commentManager = new \POO\model\CommentManager();
+	$commentManager = new CommentManager();
 
 	$recComm = $commentManager->comment($id_post, $pseudo, $comment);
 

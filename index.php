@@ -1,5 +1,6 @@
 <?php
 session_start();
+require('model/vendor/autoload.php');
 /*Local*/
 /*const ROOT = "/tests/blog_mvc/tests/POO";*/
 
