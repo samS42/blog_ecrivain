@@ -47,22 +47,24 @@ $form = ob_get_clean();
 <!-- Display posts list-->
 
 <?php
-	while($write_db = $entry_db->fetch())
+
+	foreach ($listPosts as $value)
 	{
+
 ?>
 
 		<div id="content-list-posts" class="col-xs-offset-1 col-xs-10 col-xs-offset-1 col-sm-offset-2 col-sm-8 col-sm-offset-2 col-md-offset-3 col-md-6 col-md-offset-3">
 			<div class="panel panel-info">
 				<div id="panel-heading" class="panel-heading">
-					<h3 id="title-center"><?= $write_db['title']?></h3>
-					Posté le: <?= $write_db['date_creation'] ?><br/>
+					<h3 id="title-center"><?= $value->getTitle(); ?></h3>
+					Posté le: <?= $value->getDateCreation(); ?><br/>
 				</div>
 				<div class="list-group">
 					<p>
 						<?php
-						echo mb_strimwidth($write_db['content'],0,200,"...");
+						echo mb_strimwidth($value->getContent() ,0,200,"...");
 						?>
-						<a href="index.php?action=post&amp;id=<?= $write_db['id'] ?> ">Lire la suite</a>
+						<a href="index.php?action=post&id=<?= $value->getId(); ?> ">Lire la suite</a>
 					</p>
 				</div>
 			</div>
@@ -70,9 +72,7 @@ $form = ob_get_clean();
 		
 <?php
 	}
-		
-$entry_db->closeCursor(); ?>
-<?php $content = ob_get_clean() ?>
+ $content = ob_get_clean() ?>
 
 <?php ob_start(); ?>
 

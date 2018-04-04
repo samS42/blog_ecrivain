@@ -10,19 +10,19 @@
 <body id="body">
 	<div class="main">
 		<header class="header-page">
-		<h1 class="title-front col-xs-12 col-sm-offset-1 col-sm-4 col-md-offset-1 col-md-5 "><strong><?= $title ?></strong></h1>
-		<?= $form ?>
+			<h1 class="title-front col-xs-12 col-sm-offset-1 col-sm-4 col-md-offset-1 col-md-5 "><strong><?= $title ?></strong></h1>
+			<?= $form ?>
 		</header>
 	
-	  <div class="row">
-	  <?= $content ?>
-	  </div>
+	    <div class="row">
+	    	<?= $content ?>
+	    </div>
 
-	  <div class="row">
-	  	<?= $pagination ?>
-	  </div>
+	    <div class="row">
+	  		<?= $pagination ?>
+	    </div>
 	  
-	  <div class="row">
+	  	<div class="row">
 	  	<footer id="footer" class="col-xs-12 col-sm-12 col-md-12">
 
 	  		<div id="address" class="col-xs-12 col-sm-3 col-md-3">
@@ -43,8 +43,10 @@
 	  		<div id="mention" class="col-xs-12 col-sm-3 col-md-3">
 	  			<a href="#">Mentions légales</a>
 	  		</div>
+
 	  	</footer>
-	  </div>
+	  	</div>
+
 	</div>
 
 </body>

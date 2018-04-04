@@ -1,59 +1,70 @@
-#body { margin: 0; padding: 0; background: url(doc/new_a5.jpg) no-repeat center fixed; background-size: cover;}
+#body { margin: 0; padding: 0; background: url(doc/new_a5.jpg) no-repeat center fixed; background-size: cover; }
 
+/*Delete bootstrap margin*/
 .row { margin-right: 0px; margin-left: 0px; }
-
-/*.header-page{ background-color: #CCC; }*/
 
 #title-list-posts { background-color: white; margin-top: 15px; }
 .title-list-posts { background-color: white; margin-top: 15px; }
-/*#content-list-posts { background-color: white; margin-bottom: 15px; margin-top: 15px; }*/
 
 #title-post { background-color: white; margin-top: 15px; }
 #content-post { background-color: white; }
-#comment-post { background-color: white; margin-bottom: 15px;}
-.comment-post { background-color: white; margin-bottom: 15px;}
-.background-title { background-color: #ccdfff; }
-/*#add-comment-post { background-color: white; margin-top: 15px; margin-bottom: 15px; }*/
+#comment-post { background-color: white; margin-bottom: 15px; }
+.comment-post { background-color: white; margin-bottom: 15px; }
 
+/*Panel background title*/
+.background-title { background-color: #ccdfff; }
+
+/*Add space above and below the title*/
 .title-admin { padding-bottom: 60px; padding-top: 10px; }
 .title-front { padding-bottom: 60px; padding-top: 20px; }
 #title-center { text-align: center; font-weight: bold; }
 
 .button-admin-view { display: flex; flex-direction: column; padding-top: 5px; }
 
+/*Add space above and below the button*/
 .buttons { padding-top: 10px; }
 .buttons-admin { margin-top: 10px; }
 #width-button-padd { padding-bottom: 20px; }
 
+/*Add border in the title*/
 #subtitle-border { text-align: center; border: solid; padding: 10px; margin-bottom: 25px; }
 #title_view_posts { text-align: center; border: solid; padding: 10px; margin-bottom: 25px; }
 
+/*Color panel heading*/
 #panel-heading { background-color: #e2d6ce; padding: 5px; }
 
 .list-group { word-wrap: break-word; }
 #list-group { background-color: white; }
 #btn { padding-left: 15px; }
 
+/*align content*/
 .info, .col-md-3 { display: flex; flex-direction: column; align-items: center; }
 
+/*Active and visited link*/
 .signal:active, .signal:visited { color: red; }
 
+/*Design pagination*/
 #pagination { padding-bottom: 50px; padding-top: 60px; }
 .pagination { display: flex; justify-content: center; }
 .pagination > li > a { background-color: #e2d6ce; font-weight: bold; }
 
+/*add footer background with transparency*/
+#footer { background: rgba(226,214,206,0.8);  }
 
-#footer { background-color: #e2d6ce; }
-
+/*align footer address*/
 #address { display: flex; justify-content: center; padding-top: 60px; }
 
+/*align Jean's picture*/
 #pics { display: flex; justify-content: center; padding-top: 15px; }
 
+/*align links*/
 #social-media { display: flex; flex-direction: row; justify-content: center; padding-top: 55px; }
-.fa { padding: 10px }
+.fa { padding: 10px; }
 
+/*align mentions*/
 #mention { display: flex; justify-content: center; padding-top: 60px; }
 
+/*Phone format*/
 @media (max-width: 768px)
 {
 	#width-button { float: unset; }

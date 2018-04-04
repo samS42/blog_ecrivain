@@ -11,20 +11,19 @@ function connexionAdmin($pseudo, $pass_form)
 
 	$hashed_password = $adminManager->check_password($pseudo, $pass_form);
 
-		if (password_verify($pass_form, $hashed_password['password']))
-		{
-			$_SESSION['pseudo'] = $pseudo;
+	if (password_verify($pass_form, $hashed_password['password']))
+	{
+		$_SESSION['pseudo'] = $pseudo;
 
-			listTitles();
-		}
-		else
-		{
-			throw new Exception('Impossible de se connecter');	
-		}
+		listTitles();
+	}
+	else
+	{
+		throw new Exception('Impossible de se connecter');	
+	}
 }
 
 /*Display frontpage admin*/
-
 function listTitles()
 {
 	$adminManager = new AdminManager();
@@ -43,7 +42,6 @@ function displayPost($id_post)
 }
 
 /*Delete post and the corresponding comments*/
-
 function deletePost($id_post)
 {
 	$adminManager = new AdminManager();
@@ -56,7 +54,6 @@ function deletePost($id_post)
 }
 
 /*Delete signaled comment*/
-
 function deleteComment($id_comment, $id_post)
 {
 	$adminManager = new AdminManager();
@@ -95,7 +92,6 @@ function signalComment($id_comment, $id_post)
 	$signalComment = $adminManager->adminSignalComment($id_comment);
 
 	header('Location: index.php?action=post&id=' . $id_post);
-
 }
 
 function displayAddPost()

@@ -2,7 +2,7 @@
 
 namespace Acme;
 
-class PostManager extends Manager
+class PostManagerPDO extends Manager
 {
 	/*Number of posts per page*/
 	const NB_POSTS = 4;
@@ -23,11 +23,20 @@ class PostManager extends Manager
 
 		$entry_db = $db->prepare('SELECT id, title, content, DATE_FORMAT(date_creation, \'%d/%m/%Y\') 
             AS date_creation FROM posts ORDER BY id DESC LIMIT :post,:length');
+
+		$entry_db->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'Post');
+
 		$entry_db->bindValue('post', $starting_post, \PDO::PARAM_INT);
 		$entry_db->bindValue('length', self::NB_POSTS, \PDO::PARAM_INT);
 		$entry_db->execute();
+		
 
-			return $entry_db;
+		$listPosts = $entry_db->fetchAll();
+
+		$entry_db->closeCursor();
+
+		return $listPosts;
+
 	}
 
 	/*Display selected post*/

@@ -2,12 +2,9 @@
 
 namespace Acme;
 
-/*require_once('model/src/Manager.php');*/
-
 class AdminManager extends Manager
 {
 	/*Admin's page connexion*/
-
 	public function check_password($pseudo, $pass_form)
 	{
 		$db = $this->call_db();
@@ -16,14 +13,14 @@ class AdminManager extends Manager
 		$req->execute(array('pseudo' => $pseudo));
 		$hashed_password = $req->fetch();
 		
-		return $hashed_password;
+			return $hashed_password;
 	}
 
 	/*Display admin's page*/
-
 	public function getTitles()
 	{
 		$db = $this->call_db();
+
 		$req = $db->query('SELECT * FROM posts ORDER BY id DESC');
 		
 			return $req;
@@ -61,7 +58,6 @@ class AdminManager extends Manager
 	}
 
 	/*Delete comments from deleted post*/
-
 	public function adminDeleteComments($id_post)
 	{
 		$db = $this->call_db();
@@ -73,7 +69,6 @@ class AdminManager extends Manager
 	}
 
 	/*Delete signaled comment*/
-
 	public function adminDeleteComment($id_comment)
 	{
 		$db = $this->call_db();
@@ -105,7 +100,6 @@ class AdminManager extends Manager
 	}
 
 	/*Display signaled comment in the db*/
-
 	public function adminSignalcomment($id_comment)
 	{
 		$db = $this->call_db();
