@@ -24,7 +24,7 @@ class PostManagerPDO extends Manager
 		$entry_db = $db->prepare('SELECT id, title, content, DATE_FORMAT(date_creation, \'%d/%m/%Y\') 
             AS date_creation FROM posts ORDER BY id DESC LIMIT :post,:length');
 
-		$entry_db->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'Post');
+		$entry_db->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'Acme\Post');
 
 		$entry_db->bindValue('post', $starting_post, \PDO::PARAM_INT);
 		$entry_db->bindValue('length', self::NB_POSTS, \PDO::PARAM_INT);
@@ -45,8 +45,13 @@ class PostManagerPDO extends Manager
 		$db = $this->call_db();
 
 		$db1 = $db->prepare('SELECT id, title, DATE_FORMAT(date_creation, \'%d/%m/%Y\') AS date_creation, content FROM posts WHERE id = ?');
+
+		$db1->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'Acme\Post');
+
 		$db1->execute(array($id_post));
-		$db2 = $db1->fetch();
+		$db2 = $db1->fetchAll();
+
+		$db1->closeCursor();
 
 			return $db2;
 	}

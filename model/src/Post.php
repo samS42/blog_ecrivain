@@ -1,8 +1,10 @@
 <?php
 
+namespace Acme;
+
 class Post
 {
-	
+
 	private $id;
 	private $title;
 	private $content;
@@ -44,4 +46,3 @@ class Post
 	}
 
 }
-

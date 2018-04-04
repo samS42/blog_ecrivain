@@ -3,7 +3,7 @@
 require('model/vendor/autoload.php');
 
 use Acme\PostManagerPDO;
-use Acme\CommentManager;
+use Acme\CommentManagerPDO;
 
 /*Come back to the home page*/
 function index()
@@ -28,22 +28,22 @@ function listPosts($page=1)
 
 function post($id_post)
 {
-	$postManager = new PostManager();
-	$commentManager = new CommentManager();
+	$postManager = new PostManagerPDO();
+	$commentManager = new CommentManagerPDO();
 
 	$db2 = $postManager->getPost($id_post);
-	$db1 = $commentManager->getComments($id_post);
+	$listComments = $commentManager->getComments($id_post);
 
-	require('view/frontend/post_view.php');
+	require('view/frontend/postViewPDO.php');
 }
 
 function addComment($id_post, $pseudo, $comment)
 {
-	$commentManager = new CommentManager();
+	$commentManager = new CommentManagerPDO();
 
-	$recComm = $commentManager->comment($id_post, $pseudo, $comment);
+	$dbComm = $commentManager->comment($id_post, $pseudo, $comment);
 
-	if($recComm === false)
+	if($dbComm == false)
 	{
 		throw new Exception('Impossible d\'ajouter le commentaire');
 	}
