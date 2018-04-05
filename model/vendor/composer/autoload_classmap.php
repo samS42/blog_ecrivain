@@ -6,8 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Acme\\AdminManager' => $baseDir . '/src/AdminManager.php',
-    'Acme\\CommentManager' => $baseDir . '/src/CommentManager.php',
-    'Acme\\Manager' => $baseDir . '/src/Manager.php',
-    'Acme\\PostManager' => $baseDir . '/src/PostManager.php',
+    'JeanForteroche\\AdminManagerPDO' => $baseDir . '/src/AdminManagerPDO.php',
+    'JeanForteroche\\Comment' => $baseDir . '/src/Comment.php',
+    'JeanForteroche\\CommentManagerPDO' => $baseDir . '/src/CommentManagerPDO.php',
+    'JeanForteroche\\Identification' => $baseDir . '/src/Identification.php',
+    'JeanForteroche\\Manager' => $baseDir . '/src/Manager.php',
+    'JeanForteroche\\Post' => $baseDir . '/src/Post.php',
+    'JeanForteroche\\PostManagerPDO' => $baseDir . '/src/PostManagerPDO.php',
 );

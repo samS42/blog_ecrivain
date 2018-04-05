@@ -14,11 +14,19 @@ require('controller/backController.php');
 
 try
 {
+
 	if(isset($_GET['action']))
 	{
 
+		/*Disconnection*/
+		if($_GET['action'] == 'logout')
+		{	
+			session_destroy();
+			header('Location: /index.php?action=index');
+		}
+
 		/*Display post_view.php*/
-		if ($_GET['action'] == 'post')
+		elseif ($_GET['action'] == 'post')
 		{
 			if(isset($_GET['id']) AND is_numeric($_GET['id']) AND $_GET['id'] > 0)
 			{

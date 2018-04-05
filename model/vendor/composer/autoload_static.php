@@ -7,24 +7,27 @@ namespace Composer\Autoload;
 class ComposerStaticInitf3a6b353ae30504021e12960d89fc3e9
 {
     public static $prefixLengthsPsr4 = array (
-        'A' => 
+        'J' => 
         array (
-            'Acme\\' => 5,
+            'JeanForteroche\\' => 15,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Acme\\' => 
+        'JeanForteroche\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
     );
 
     public static $classMap = array (
-        'Acme\\AdminManager' => __DIR__ . '/../..' . '/src/AdminManager.php',
-        'Acme\\CommentManager' => __DIR__ . '/../..' . '/src/CommentManager.php',
-        'Acme\\Manager' => __DIR__ . '/../..' . '/src/Manager.php',
-        'Acme\\PostManager' => __DIR__ . '/../..' . '/src/PostManager.php',
+        'JeanForteroche\\AdminManagerPDO' => __DIR__ . '/../..' . '/src/AdminManagerPDO.php',
+        'JeanForteroche\\Comment' => __DIR__ . '/../..' . '/src/Comment.php',
+        'JeanForteroche\\CommentManagerPDO' => __DIR__ . '/../..' . '/src/CommentManagerPDO.php',
+        'JeanForteroche\\Identification' => __DIR__ . '/../..' . '/src/Identification.php',
+        'JeanForteroche\\Manager' => __DIR__ . '/../..' . '/src/Manager.php',
+        'JeanForteroche\\Post' => __DIR__ . '/../..' . '/src/Post.php',
+        'JeanForteroche\\PostManagerPDO' => __DIR__ . '/../..' . '/src/PostManagerPDO.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

@@ -1,5 +1,7 @@
 #body { margin: 0; padding: 0; background: url(doc/new_a5.jpg) no-repeat center fixed; background-size: cover; }
 
+p { margin: 7px; }
+
 /*Delete bootstrap margin*/
 .row { margin-right: 0px; margin-left: 0px; }
 
@@ -65,17 +67,34 @@
 #mention { display: flex; justify-content: center; padding-top: 60px; }
 
 /*Phone format*/
-@media (max-width: 768px)
+@media all and (max-device-width: 768px)
 {
+	body, p { font-size: xx-large; }
+	h5 { font-size: x-large; }
+	h3 { font-size: 30px; }
+	h2 { font-size: 65px; }
+	h1 { font-size: 90px; }
+
+	#bonjour { font-size: 35px; }
+	input[type=text], input[type=password] { padding: 50px 150px; font-size: xx-large; }
+	label { font-size: 45px; }
+	.button { padding: 50px 150px; font-size: xx-large; }
+
+	.font-button { padding: 30px 60px; font-size: xx-large; }
 	#width-button { float: unset; }
 	#width-button-padd { float: unset; }
 	.title-admin { padding-bottom: 0px; padding-top: 10px; }
 	.buttons-admin { margin-top: -20px; }
+	.button-publish { padding: 25px 60px; font-size: 30px; }
+
+	.list-group-item { font-size: 30px; padding: 30px; }
 
 	#add-signal-post { padding: 15px; }
 
-	#address { padding-top: 8px; }
-	#pics { padding-top: 8px; }
-	#social-media { padding-top: 8px; }
-	#mention { padding-top: 8px; }
+.pagination > li > a { font-size: 50px; }
+
+	#address { padding-top: 20px; }
+	#pics { padding-top: 20px; }
+	#social-media { padding-top: 20px; }
+	#mention { padding-top: 20px; padding-bottom: 20px; }
 }

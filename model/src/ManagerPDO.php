@@ -1,8 +1,8 @@
 <?php
 
-namespace Acme;
+namespace JeanForteroche;
 
-class Manager
+class ManagerPDO
 {
 	/*db connexion*/
 	protected function call_db()

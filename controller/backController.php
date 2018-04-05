@@ -2,24 +2,27 @@
 
 require('model/vendor/autoload.php');
 
-use Acme\AdminManagerPDO;
-use Acme\PostManagerPDO;
+use JeanForteroche\AdminManagerPDO;
+use JeanForteroche\PostManagerPDO;
 
 function connexionAdmin($pseudo, $pass_form)
 {
-	$adminManager = new AdminManager();
+	$adminManager = new AdminManagerPDO();
 
 	$hashed_password = $adminManager->check_password($pseudo, $pass_form);
 
-	if (password_verify($pass_form, $hashed_password['password']))
-	{
-		$_SESSION['pseudo'] = $pseudo;
+	foreach($hashed_password as $value)
+	{	
+		if (password_verify($pass_form, $value->getPassword()))
+		{
+			$_SESSION['pseudo'] = $pseudo;
 
-		listTitles();
-	}
-	else
-	{
-		throw new Exception('Impossible de se connecter');	
+			listTitles();
+		}
+		else
+		{
+			throw new Exception('Impossible de se connecter');	
+		}
 	}
 }
 
@@ -96,7 +99,7 @@ function signalComment($id_comment, $id_post)
 
 function displayAddPost()
 {
-	require('view/backend/adminAddPost.php');
+	require('view/backend/adminAddPostPDO.php');
 }
 
 function displaySignalComment()

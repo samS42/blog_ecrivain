@@ -2,8 +2,8 @@
 
 require('model/vendor/autoload.php');
 
-use Acme\PostManagerPDO;
-use Acme\CommentManagerPDO;
+use JeanForteroche\PostManagerPDO;
+use JeanForteroche\CommentManagerPDO;
 
 /*Come back to the home page*/
 function index()

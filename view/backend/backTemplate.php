@@ -31,7 +31,7 @@
 			<?= $header ?>
 	 	</header>
 
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row">
 				<?= $title_page ?>
 			</div>

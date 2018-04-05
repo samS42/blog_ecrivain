@@ -5,18 +5,19 @@
 
 	<link href="<?= ROOT; ?>/css/bootstrap.css" rel="stylesheet" type="text/css">
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width" />
 	<title>Home page</title>
 	<style type="text/css">
-		body { background-image: url(<?= ROOT; ?>/css/doc/new_a2.jpg); background-attachment: fixed;}
+		#bod { margin: 0; padding: 0; background: url(<?= ROOT; ?>/css/doc/new_a2.jpg) no-repeat;  }
 		#title-home-page { display: flex; justify-content: center; padding-top: 150px; color: white /*#252628*/; }
 		#h1-home-page { border: solid; padding: 10px; }
 		#button-home-page { display: flex; justify-content: center; padding-top: 125px; }
-		@media (max-width: 768px) { #h1-home-page { font-size: x-large; } }
+		@media all and (max-device-width: 768px) { #h1-home-page { font-size: x-large; } body { background: url(<?= ROOT; ?>/css/doc/new_a4.jpg) no-repeat; } }
 	</style>
 	
 </head>
 
-<body>
+<body id="bod">
 
 	<div class="container">
 	  <div class="row">
