@@ -35,7 +35,7 @@
 $form = ob_get_clean();
 ?>
 
-<?php $title = 'Un billet pour l\'Alaska'; ?>
+<?php $title = 'Billet simple pour l\'Alaska'; ?>
 <?php ob_start();?>
 
 	
@@ -77,7 +77,7 @@ $form = ob_get_clean();
 <?php ob_start(); ?>
 
 <div id="pagination" class="col-md-12">
-	<ul class="pagination pagination-lg">
+	<ul class="pagination">
 		<?php for ($i=1; $i <= $nb_pages; $i++): ?>
 			<li><a href="<?= ROOT; ?>/index.php?action=index&page=<?= $i ?>"><?= $i ?></a></li>
 		<?php endfor; ?>

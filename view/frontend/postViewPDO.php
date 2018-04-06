@@ -32,7 +32,7 @@ ob_start();
 	}
 
 $form = ob_get_clean() ?>
-<?php $title = 'Un billet pour l\'Alaska' ?>
+<?php $title = 'Billet simple pour l\'Alaska' ?>
 
 <?php ob_start(); ?>
 

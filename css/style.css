@@ -75,6 +75,8 @@ p { margin: 7px; }
 	h2 { font-size: 65px; }
 	h1 { font-size: 90px; }
 
+	img { width: 30%; height: 30%; }
+
 	#bonjour { font-size: 35px; }
 	input[type=text], input[type=password] { padding: 50px 150px; font-size: xx-large; }
 	label { font-size: 45px; }
@@ -91,7 +93,9 @@ p { margin: 7px; }
 
 	#add-signal-post { padding: 15px; }
 
-.pagination > li > a { font-size: 50px; }
+	.pagination > li > a { padding: 20px 32px; font-size: 36px; line-height: 1.3333333; }
+
+	.fa { padding: 30px 40px; }
 
 	#address { padding-top: 20px; }
 	#pics { padding-top: 20px; }
