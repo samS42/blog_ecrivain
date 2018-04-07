@@ -5,51 +5,51 @@ namespace JeanForteroche;
 class Comment
 {
 
-	private $_id;
-	private $_post_id;
-	private $_author;
-	private $_comment;
-	private $_comment_date;
-	private $_signalComment;
+	private $id;
+	private $post_id;
+	private $author;
+	private $comment;
+	private $comment_date;
+	private $signalComment;
 
 	public function getId()
 	{
-		return $this->_id;
+		return $this->id;
 	}
 
 	public function getPostId()
 	{
-		return $this->_post_id;
+		return $this->post_id;
 	}
 
 	public function getAuthor()
 	{
-		return $this->_author;
+		return $this->author;
 	}
 
 	public function getComment()
 	{
-		return $this->_comment;
+		return $this->comment;
 	}
 
 	public function setComment($comment)
 	{
-		$this->_comment = $comment;
+		$this->comment = $comment;
 	}
 
 	public function getCommentDate()
 	{
-		return $this->_comment_date;
+		return $this->comment_date;
 	}
 
 	public function getSignalComment()
 	{
-		return $this->_signalComment;
+		return $this->signalComment;
 	}
 
 	public function setSignalComment($signalComment)
 	{
-		$this->_signalComment = $signalComment;
+		$this->signalComment = $signalComment;
 	}
 
 }

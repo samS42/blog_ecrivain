@@ -5,44 +5,44 @@ namespace JeanForteroche;
 class Post
 {
 
-	private $_id;
-	private $_title;
-	private $_content;
-	private $_date_creation;
+	private $id;
+	private $title;
+	private $content;
+	private $date_creation;
 
 	public function getId()
 	{
-		return $this->_id;
+		return $this->id;
 	}
 
 	public function getTitle()
 	{
-		return $this->_title;
+		return $this->title;
 	}
 
 	public function setTitle($title)
 	{
-		$this->_title = $title;
+		$this->title = $title;
 	}
 
 	public function getContent()
 	{
-		return $this->_content;
+		return $this->content;
 	}
 
 	public function setContent($content)
 	{
-		$this->_content = $content;
+		$this->content = $content;
 	}
 
 	public function getDateCreation()
 	{
-		return $this->_date_creation;
+		return $this->date_creation;
 	}
 
 	public function setDateCreation($date_creation)
 	{
-		$this->_date_creation = $date_creation;
+		$this->date_creation = $date_creation;
 	}
 
 }

@@ -4,17 +4,17 @@ namespace JeanForteroche;
 
 class Identification
 {
-	private $_id;
-	private $_pseudo;
-	private $_password;
+	private $id;
+	private $pseudo;
+	private $password;
 
 	public function getPseudo()
 	{
-		return $this->_pseudo;
+		return $this->pseudo;
 	}
 
 	public function getPassword()
 	{
-		return $this->_password;
+		return $this->password;
 	}
 }
